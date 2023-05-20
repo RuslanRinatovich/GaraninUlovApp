@@ -1,0 +1,1214 @@
+// КОНТЕКСТ ПОДКЛЮЧЕНИЯ
+
+using System.Data.Entity; 
+
+
+namespace SportApp.Models
+{
+    public partial class SportTradeEntities : DbContext
+    {
+        private static SportTradeEntities _context;
+        /// <summary>
+        /// Метод возвращающий контекст подключения
+        /// </summary>
+        /// <returns></returns>
+        public static SportTradeEntities GetContext()
+        {
+            if (_context == null)
+            {
+                _context = new SportTradeEntities();
+            }
+            return _context;
+        }
+    }
+}
+
+// КЛАСС ПРОДУКТ
+using System;
+using System.IO;
+
+
+namespace SportApp.Models
+{
+
+
+    public partial class Product
+    {
+        /// <summary>
+        /// Возвращает абсолютный путь к изображению
+        /// </summary>
+        public string GetPhoto
+        {
+            get
+            {
+                if (ProductPhoto is null)
+                    return Directory.GetCurrentDirectory() + @"\Images\picture.png";
+                return Directory.GetCurrentDirectory() + @"\Images\" + ProductPhoto.Trim();
+            }
+        }
+        /// <summary>
+        /// Задает цвет фона элемента "#7fff00", если скидка больше 15%
+        /// </summary>
+        public string GetColor
+        {
+            get
+            {
+                if (ProductDiscountAmount > 15)
+                    return "#7fff00";
+                else
+                    return "#fff";
+            }
+        }
+        /// <summary>
+        /// Стоимость товара с учетом скидки
+        /// </summary>
+        public double GetPriceWithDiscount
+        {
+            get
+            {
+                double p = Convert.ToDouble(ProductCost);
+                byte d = Convert.ToByte(ProductDiscountAmount);
+                return p * (100 - d) / 100;
+            }
+        }
+        /// <summary>
+        /// Стиль текста - перечеркнутый для товаров со скидкой
+        /// </summary>
+        public string GetTextDecoration
+        {
+            get
+            {
+                if (ProductDiscountAmount > 0)
+                    return "Strikethrough";
+            return null;
+            }
+        }
+        /// <summary>
+        /// Если скидка есть то отображаем компонент
+        /// </summary>
+        public string GetVisibility
+        {
+            get
+            {
+                if (ProductDiscountAmount > 0)
+                    return "Visible";
+                return "Collapsed";
+            }
+        }
+        /// <summary>
+        /// Количество товара на складе с учетом единицы измерения
+        /// </summary>
+        public string GetCountInStock
+        {
+            get
+            {
+                return $"в наличии на складе {ProductQuantityInStock} {UnitType.UnitTypeName}";
+            }
+        }
+    }
+}
+
+
+// КЛАСС MANAGER
+
+using System.Windows.Controls;
+
+namespace SportApp.Models
+{
+    public class Manager
+    {
+        /// <summary>
+        /// Фрейм, в котором отбражаются Page
+        /// </summary>
+        public static Frame MainFrame { get; set; }
+        /// <summary>
+        /// Текущий пользователь системы
+        /// </summary>
+        public static User CurrentUser { get; set; }
+    }
+}
+
+// APP.XAML СТИЛИ
+
+<Application x:Class="SportApp.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:SportApp"
+               StartupUri="Windows\LoginWindow.xaml">
+    <!--строчка StartUpUrl отвечает за запускаемое со стартом приложения окно-->
+    <!--Первое запускаемое окно будет главным в приложении.-->
+    <Application.Resources>
+        <!--цвета приложения для соответсвия стилю-->
+        <SolidColorBrush x:Key="main" Color="#FFF"/>
+        <SolidColorBrush x:Key="additional" Color="#FF76E383"/>
+        <SolidColorBrush x:Key="akcent" Color="#FF498C51"/>
+        <!--Стиль для окна-->
+        <Style TargetType="Window" x:Key="base_window">
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="MinHeight" Value="600"/>
+            <Setter Property="MinWidth" Value="800"/>
+            <Setter Property="Background" Value="{StaticResource main}"/>
+        </Style>
+        <!--стиль для страницы-->
+        <Style TargetType="Page" x:Key="base_page">
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+            <Setter Property="Background" Value="{StaticResource main}"/>
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+        <!--стиль для полей ввода TextBox-->
+        <Style TargetType="TextBox">
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding"  Value="3 0"/>
+            <Setter Property="Background" Value="{StaticResource main}"/>
+        </Style>
+        <!--стиль для полей кнопок Button-->
+        <Style TargetType="Button">
+            <Setter Property="Width" Value="auto"/>
+            <Setter Property="Height" Value="auto"/>
+            <Setter Property="Background" Value="{StaticResource akcent}"/>
+            <Setter Property="Foreground" Value="{StaticResource main}"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Height" Value="30"/>
+        </Style>
+        <!--стиль для заголовков столбцов -->
+        <Style TargetType="DataGridColumnHeader" x:Key="WrappedColumnHeaderStyle" >
+            <Setter Property="ContentTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <TextBlock TextWrapping="Wrap" Text="{Binding}" 
+                                   TextAlignment="Center"  
+                                   VerticalAlignment="Center"/>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!--стиль для меток TextBlock -->
+        <Style TargetType="TextBlock" x:Key="base_textblock">
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="Padding"  Value="5"/>
+            <Setter Property="Background" Value="{StaticResource additional}"/>
+        </Style>
+        <!--стиль для меток TextBlock -->
+        <Style TargetType="TextBlock" x:Key="item_textblock">
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Padding" Value="3"/>
+        </Style>
+        <!--стиль для меток ComboBoxItem -->
+        <Style TargetType="ComboBoxItem">
+            <Setter Property="Background" Value="{StaticResource main}"/>
+            <Setter Property="Height" Value="40"/>
+        </Style>
+        <!--стиль для меток ListViewItem -->
+        <Style TargetType="ListBoxItem" x:Key="good_item">
+            <Setter Property="Background" 
+                    Value="{Binding GetColor}" />
+            <Setter Property="BorderBrush" Value="{StaticResource akcent}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        </Style>
+    </Application.Resources>
+</Application>
+
+// LOGINWINDOW.XAML
+<Window x:Class="SportApp.Windows.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SportApp.Windows"
+        mc:Ignorable="d"
+          Title="Вход"  Style="{StaticResource base_window}" Height="200"
+        Width="400" MinHeight="200" MinWidth="400" 
+        WindowStartupLocation="CenterScreen"
+        Closing="WindowClosing" 
+        ResizeMode="NoResize" Icon="/SportApp;component/Resources/icon.ico">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="34"/>
+            <RowDefinition Height="34"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Grid Background="{StaticResource additional}" />
+        <Image Source="/SportApp;component/Resources/logo.png" 
+               Margin="10" 
+               HorizontalAlignment="Left" />
+        <TextBlock Grid.Row="0" Text="ООО СПОРТ" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Center"
+                   Background="{StaticResource additional}"
+                   FontSize="20"
+                   FontWeight="Bold" />
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+            <TextBlock Style="{StaticResource item_textblock}"
+                       Grid.Row="1"
+                       Text="Логин" 
+                       Margin="20 0" 
+                       VerticalAlignment="Center" Width="120"/>
+            <TextBox x:Name="TbLogin" 
+                     Grid.Column="1"
+                     Width="200"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="2">
+            <TextBlock Style="{StaticResource item_textblock}"
+                Grid.Row="2" Grid.Column="0"
+                Text="Пароль" Margin="20 0" 
+                VerticalAlignment="Center" Width="120"/>
+            <PasswordBox x:Name="TbPass" Height="30" Width="200" />
+        </StackPanel >
+        <StackPanel Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="Center">
+            <Button Width="100" Height="30" 
+                    Content="OK" 
+                    x:Name="BtnOk" 
+                    Click="BtnOkClick"/>
+            <Button Width="100"
+                    Height="30" 
+                    Content="Cancel" 
+                    x:Name="BtnCancel" 
+                    Click="BtnCancelClick"/>
+            <Button Width="100"
+                    Height="30" 
+                    Content="Гость" 
+                    x:Name="BtnGuestMode" 
+                    Click="BtnGuestMode_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
+
+//LOGINWINDOW.CS
+
+using SportApp.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows;
+using System.Windows.Threading;
+
+namespace SportApp.Windows
+{
+    /// <summary>
+    /// Логика взаимодействия для Window1.xaml
+    /// </summary>
+    public partial class LoginWindow : Window
+    {
+        public LoginWindow()
+        {
+            InitializeComponent();
+            TbLogin.Text = "loginDEpxl2018";
+            TbPass.Password = "P6h4Jq";
+        }
+
+       private void BtnOkClick(object sender, RoutedEventArgs e)
+        {
+            try
+            {  
+                List<User> users = SportTradeEntities.GetContext().Users.ToList();
+                User user = users.FirstOrDefault(
+                    p => p.UserPassword == TbPass.Password && p.UserLogin == TbLogin.Text);
+                if (user != null)
+                {
+                    Manager.CurrentUser = user;
+                    MainWindow mainWindow = new MainWindow();
+                    mainWindow.Owner = this;
+                    this.Hide();
+                    mainWindow.Show();
+                 
+                }
+                else
+                {
+                    MessageBox.Show("Не верный логин или пароль");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+        }
+      
+        private void BtnCancelClick(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+      
+        private void WindowClosing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+          
+            MessageBoxResult x = MessageBox.Show("Вы действительно хотите закрыть приложение?",
+           "Выйти", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+            if (x == MessageBoxResult.Cancel)
+                e.Cancel = true;
+        }
+
+        private void BtnGuestMode_Click(object sender, RoutedEventArgs e)
+        {
+           
+            Manager.CurrentUser = null;
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Owner = this;
+            this.Hide();
+            mainWindow.Show();
+        }
+    }
+}
+
+// MAINWINDOW.XAML
+
+<Window x:Class="SportApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SportApp"
+        mc:Ignorable="d"
+              Title="{Binding ElementName=MainFrame, Path=Content.Title}" 
+        WindowStartupLocation="CenterScreen"
+        Style="{StaticResource base_window}"
+        Height="450" Width="800" Icon="/SportApp;component/Resources/icon.ico" 
+        Closing="WindowClosing"
+        Closed="WindowClosed" >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Grid Background="{StaticResource additional}"/>
+        <Image Source="/SportApp;component/Resources/logo.png" Margin="10" 
+               HorizontalAlignment="Left"/>
+        <TextBlock Grid.Row="0" Text="ООО СПОРТ" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Center"
+                   Background="{StaticResource additional}"
+                   FontSize="20"
+                   FontWeight="Bold"/>
+        <Frame x:Name="MainFrame" Grid.Row="1" BorderBrush="{StaticResource akcent}"
+               NavigationUIVisibility="Hidden"
+               BorderThickness="1" 
+               ContentRendered="MainFrameContentRendered"/>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 30 0 0" >
+            <Button x:Name="BtnEditGoods"  Content="Товары"  Click="BtnEditGoodsClick"/>
+            <Button x:Name="BtnBack"  Content="Назад"   Click="BtnBackClick"/>
+        </StackPanel>
+        <TextBlock x:Name="TextBlockName" Width="auto" Height="40" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+        <Grid Grid.Row="2" Background="{StaticResource additional}"/>
+    </Grid>
+</Window>
+
+//MAINWINDOW.CS
+
+using SportApp.Models;
+using SportApp.Pages;
+using System;
+using System.Windows;
+
+namespace SportApp
+{
+    /// <summary>
+    /// Логика взаимодействия для MainWindow.xaml
+    /// </summary>
+    public partial class MainWindow : Window
+     {
+        User _currentUser; //текущий пользователь в системе
+        public MainWindow()
+        {
+            InitializeComponent();
+            LoadData();
+           
+        }
+        /// <summary>
+        /// загружаем данные и инициализируем переменные
+        /// </summary>
+        void LoadData()
+        {
+            _currentUser = Manager.CurrentUser;
+            if (_currentUser != null)
+            {
+                TextBlockName.Text = $"Вы вошли как: {_currentUser.UserSurname} {_currentUser.UserName} {_currentUser.UserPatronymic}";
+            }
+            MainFrame.Navigate(new CatalogPage());
+            Manager.MainFrame = MainFrame;
+        }
+        private void WindowClosed(object sender, EventArgs e)
+        {
+            // показать владельца формы
+            Owner.Show();
+            // или если надо, то можно закрыть приложение  командой
+            // App.Current.Shutdown();
+        }
+        //событие попытки закрытия окна,
+        // если пользователь выберет Cancel, то форму не закроем
+        private void WindowClosing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            MessageBoxResult x = MessageBox.Show("Вы действительно хотите выйти?",
+                "Выйти", MessageBoxButton.OKCancel,
+                MessageBoxImage.Question);
+            if (x == MessageBoxResult.Cancel)
+                e.Cancel = true;
+        }
+        // Кнопка назад
+        private void BtnBackClick(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.GoBack();
+        }
+        // Кнопка навигации
+        private void BtnEditGoodsClick(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new ProductsPage());
+        }
+        // Событие отрисовки страницы
+        // Скрываем или показываем кнопку Назад 
+        // Скрываем или показываем кнопки Для перехода к остальным страницам
+        private void MainFrameContentRendered(object sender, EventArgs e)
+        {
+            // проверяем кто вошел систему
+            if (_currentUser == null || _currentUser.RoleID == 1) // клиент или гость
+            {
+                
+                if (MainFrame.CanGoBack)
+                {
+                    BtnBack.Visibility = Visibility.Hidden;
+                    BtnEditGoods.Visibility = Visibility.Collapsed;
+                }
+                else
+                {
+                    BtnBack.Visibility = Visibility.Collapsed;
+                    BtnEditGoods.Visibility = Visibility.Collapsed;
+                }
+                return;
+            }
+            if (_currentUser.RoleID == 3) // менеджер
+            {
+                if (MainFrame.CanGoBack)
+                {
+                    BtnBack.Visibility = Visibility.Visible;
+                    BtnEditGoods.Visibility = Visibility.Collapsed;
+                }
+                else
+                {
+                    BtnBack.Visibility = Visibility.Collapsed;
+                    BtnEditGoods.Visibility = Visibility.Collapsed;
+                }
+                return;
+            }
+            if (_currentUser.RoleID == 2) // админ
+            {
+                if (MainFrame.CanGoBack)
+                {
+                    BtnBack.Visibility = Visibility.Visible;
+                    BtnEditGoods.Visibility = Visibility.Collapsed;
+                }
+                else
+                {
+                    BtnBack.Visibility = Visibility.Collapsed;
+                    BtnEditGoods.Visibility = Visibility.Visible;
+                }
+                return;
+            }
+          
+        }
+}
+}
+
+// CATALOGPAGE.XAML
+
+<Page x:Class="SportApp.Pages.CatalogPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SportApp.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Каталог"
+   IsVisibleChanged="PageIsVisibleChanged" 
+   Style="{StaticResource base_page}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <WrapPanel Grid.Row="0" HorizontalAlignment="Stretch" Background="{StaticResource additional}">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Введите наименование товара для поиска:" 
+                           Style="{StaticResource base_textblock}"/>
+                <TextBox Width="275" x:Name="TBoxSearch"  
+                         TextChanged="TBoxSearchTextChanged"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Выберите скидку" 
+                           Style="{StaticResource base_textblock}" />
+                <ComboBox Width="275"   x:Name="ComboDiscont"
+                          SelectionChanged="ComboSortSelectionChanged" >
+                    <ComboBoxItem Content="Все диапазоны"/>
+                    <ComboBoxItem Content="0 - 9.99%"/>
+                    <ComboBoxItem Content="10 - 14.99 %"/>
+                    <ComboBoxItem Content="15% и более"/>
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Сортировать по" 
+                           Style="{StaticResource base_textblock}" />
+                <ComboBox Width="275" 
+                          x:Name="ComboSort"
+                          SelectionChanged="ComboSortSelectionChanged" >
+                    <ComboBoxItem Content="По возрастанию"/>
+                    <ComboBoxItem Content="По убыванию"/>
+                </ComboBox>
+            </StackPanel>
+        </WrapPanel>
+        <TextBlock Grid.Row="1" x:Name="TextBlockCount" Width="300" HorizontalAlignment="Left" />
+        <TextBlock Grid.Row="1" x:Name="TextBlockBasketInfo" Width="200" HorizontalAlignment="Right" Margin="0 0 140 0" />
+        
+        
+        <ListBox x:Name="ListBoxProducts"   
+                 ScrollViewer.VerticalScrollBarVisibility="Visible"   
+                 SelectedValuePath="AgentId"    Grid.Row="2" Grid.Column="0"
+                 ItemContainerStyle="{StaticResource good_item}" 
+               >
+            <ListBox.ItemTemplate >
+                <DataTemplate >
+                    <Grid HorizontalAlignment="Stretch" UseLayoutRounding="True">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="60"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="80"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" Width="60" Height="40" 
+                               Stretch="Uniform" Source="{Binding Path=GetPhoto}" 
+                               Margin="5 0 5 0"/>
+                        <StackPanel Grid.Column="1" >
+                            <TextBlock Margin="2" FontSize="16" FontWeight="Bold"
+                                       Text="{Binding Path=ProductName}" 
+                                       Width="Auto" HorizontalAlignment="Left" />
+                            <TextBlock Margin="2" FontSize="16" 
+                                       Text="{Binding Path=ProductDescription}" 
+                                       Width="Auto" HorizontalAlignment="Left" />
+                            <TextBlock Margin="2" FontSize="16" 
+                                       Text="{Binding Path=ProductManufacturer.ProductManufacturerName, StringFormat={}Производитель: {0}}"
+                                       Width="Auto" HorizontalAlignment="Left" />
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Margin="2" FontSize="16" 
+                                           Text="{Binding Path=GetPriceWithDiscount, StringFormat='c', 
+                                    ConverterCulture='ru-RU'}" 
+                                           Width="Auto" HorizontalAlignment="Left" 
+                                           Visibility="{Binding GetVisibility}" Foreground="Green"/>
+                                <TextBlock Margin="2" FontSize="16" 
+                                           Text="{Binding Path=ProductCost, StringFormat='c', ConverterCulture='ru-RU'}" 
+                                           Width="Auto" HorizontalAlignment="Left" 
+                                           TextDecorations="{Binding GetTextDecoration}" Foreground="Red"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <TextBlock  Width="80" VerticalAlignment="Center" 
+                                    Grid.Column="2" Margin="5" FontSize="26"
+                                    Text="{Binding Path=ProductDiscountAmount, StringFormat=' {0} %'}"   />
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            
+        </ListBox>
+   
+    </Grid>
+</Page>
+
+// CATALOGPAGE.CS
+using SportApp.Models;
+using SportApp.Windows;
+using System.Linq;
+using System.Windows;
+using System.Windows.Controls;
+
+namespace SportApp.Pages
+{
+    /// <summary>
+    /// Логика взаимодействия для CatalogPage.xaml
+    /// </summary>
+    public partial class CatalogPage : Page
+    {
+        int _itemcount = 0; // 
+        Product _selectedProduct = null;
+        public CatalogPage()
+        {
+            InitializeComponent();
+            LoadAndInitData();
+        }
+
+        void LoadAndInitData()
+        {
+           
+            // загрузка данных в listview сортируем по названию
+            ListBoxProducts.ItemsSource = 
+                SportTradeEntities.GetContext().Products.
+                OrderBy(p => p.ProductName).ToList();
+            _itemcount = ListBoxProducts.Items.Count;
+            // скрываем кнопки корзины
+            // отображение количества записей
+            TextBlockCount.Text = $" Результат запроса: {_itemcount} записей из {_itemcount}";
+        }
+            private void PageIsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+            {
+                //обновление данных после каждой активации окна
+                if (Visibility == Visibility.Visible)
+                {
+                SportTradeEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+                    ListBoxProducts.ItemsSource = SportTradeEntities.GetContext().Products.OrderBy(p => p.ProductName).ToList();
+                }
+            }
+            // Поиск товаров, которые содержат данную поисковую строку
+            private void TBoxSearchTextChanged(object sender, TextChangedEventArgs e)
+            {
+                UpdateData();
+            }
+            // Поиск товаров конкретного производителя
+            private void ComboTypeSelectionChanged(object sender, SelectionChangedEventArgs e)
+            {
+                UpdateData();
+            }
+            /// <summary>
+            /// Метод для фильтрации и сортировки данных
+            /// </summary>
+            private void UpdateData()
+            {
+                // получаем текущие данные из бд
+                var currentGoods = SportTradeEntities.GetContext().Products.OrderBy(p => p.ProductName).ToList();
+                // выбор только тех товаров, по определенному диапазону скидки
+                if (ComboDiscont.SelectedIndex == 1)
+                    currentGoods = currentGoods.Where(p => p.ProductDiscountAmount < 10).ToList();
+                if (ComboDiscont.SelectedIndex == 2)
+                    currentGoods = currentGoods.Where(p => (p.ProductDiscountAmount >= 10 && p.ProductDiscountAmount < 15)).ToList();
+                if (ComboDiscont.SelectedIndex == 3)
+                    currentGoods = currentGoods.Where(p => p.ProductDiscountAmount >= 15).ToList();
+                // выбор тех товаров, в названии которых есть поисковая строка
+                currentGoods = currentGoods.Where(p => p.ProductName.ToLower().Contains(TBoxSearch.Text.ToLower())).ToList();
+
+                // сортировка
+                if (ComboSort.SelectedIndex >= 0)
+                {
+                    // сортировка по возрастанию цены
+                    if (ComboSort.SelectedIndex == 0)
+                        currentGoods = currentGoods.OrderBy(p => p.ProductCost).ToList();
+                    // сортировка по убыванию цены
+                    if (ComboSort.SelectedIndex == 1)
+                        currentGoods = currentGoods.OrderByDescending(p => p.ProductCost).ToList();
+                }
+                // В качестве источника данных присваиваем список данных
+                ListBoxProducts.ItemsSource = currentGoods;
+                // отображение количества записей
+                TextBlockCount.Text = $" Результат запроса: {currentGoods.Count} записей из {_itemcount}";
+            }
+            // сортировка товаров 
+            private void ComboSortSelectionChanged(object sender, SelectionChangedEventArgs e)
+            {
+                UpdateData();
+            }
+        
+     
+    }
+    }
+
+// PRODUCTPAGE.XAML
+<Page x:Class="SportApp.Pages.ProductsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SportApp.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+       Title="Товары" IsVisibleChanged="PageIsVisibleChanged" Style="{StaticResource base_page}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <DataGrid x:Name="DataGridGood" Grid.Row="0"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  RowHeight="30" 
+                  SelectionMode="Single"
+                  LoadingRow="DataGridGoodLoadingRow">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Width="100" Header="Главное изображение">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding Path=GetPhoto}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Binding="{Binding ProductArticleNumber}" Header="Артикул" />
+                <DataGridTextColumn Binding="{Binding ProductName}" Header="Наименование товара" Width="2*"/>
+                <DataGridTextColumn Binding="{Binding ProductCost, StringFormat='c', 
+                    ConverterCulture='ru-RU'}" Header="Стоимость" Width="*"/>
+                <DataGridTextColumn Binding="{Binding UnitType.UnitTypeName}" Header="Единицы измерения" Width="*"/>
+                <DataGridTextColumn Binding="{Binding ProductDiscountAmount}" Header="Действующая скидка" Width="*"/>
+                <DataGridTextColumn Binding="{Binding ProductQuantityInStock}" Header="Количество на складе" Width="*"/>
+                <DataGridTemplateColumn Width="auto" Header="Редактировать">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="BtnEdit" Content="..." Click="ButtonClick" Margin="0"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="BtnAdd" Grid.Row="1" Width="100" HorizontalAlignment="Left" Margin="3"
+                Content="Добавить" Click="BtnAddClick"/>
+        <Button x:Name="BtnDelete" Grid.Row="1" Width="100" HorizontalAlignment="Right" Margin="3"
+                Content="Удалить" Click="BtnDeleteClick"/>
+    </Grid>
+</Page>
+
+
+// PRODUCTPAGE.CS
+
+using SportApp.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows;
+using System.Windows.Controls;
+
+namespace SportApp.Pages
+{
+    /// <summary>
+    /// Логика взаимодействия для ProductsPage.xaml
+    /// </summary>
+    public partial class ProductsPage : Page
+    {
+        public ProductsPage()
+        {
+            InitializeComponent();
+        }
+        private void ButtonClick(object sender, RoutedEventArgs e)
+        {
+            // открытие редактирования товара
+            // передача выбранного товара в AddGoodPage
+            Manager.MainFrame.Navigate(new AddProductPage((sender as Button).DataContext as Product));
+        }
+
+        private void PageIsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            //событие отображения данного Page
+            // обновляем данные каждый раз когда активируется этот Page
+            if (Visibility == Visibility.Visible)
+            {
+                DataGridGood.ItemsSource = null;
+                //загрузка обновленных данных
+                SportTradeEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+                List<Product> goods = SportTradeEntities.GetContext().Products.OrderBy(p => p.ProductName).ToList();
+                DataGridGood.ItemsSource = goods;
+            }
+        }
+
+        private void BtnAddClick(object sender, RoutedEventArgs e)
+        {
+            // открытие  AddGoodPage для добавления новой записи
+            Manager.MainFrame.Navigate(new AddProductPage(null));
+        }
+
+        private void BtnDeleteClick(object sender, RoutedEventArgs e)
+        {
+            // удаление выбранного товара из таблицы
+            //получаем все выделенные товары
+            var selectedGoods = DataGridGood.SelectedItems.Cast<Product>().ToList();
+            // вывод сообщения с вопросом Удалить запись?
+            MessageBoxResult messageBoxResult = MessageBox.Show($"Удалить {selectedGoods.Count()} записей???",
+                "Удаление", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+            //если пользователь нажал ОК пытаемся удалить запись
+            if (messageBoxResult == MessageBoxResult.OK)
+            {
+                try
+                {
+                    // берем из списка удаляемых товаров один элемент
+                    Product x = selectedGoods[0];
+                    // проверка, есть ли у товара в таблице о продажах связанные записи
+                    // если да, то выбрасывается исключение и удаление прерывается
+                    if (x.OrderProducts.Count > 0)
+                        throw new Exception("Есть записи в продажах");
+
+                    SportTradeEntities.GetContext().Products.Remove(x);
+                    //сохраняем изменения
+                    SportTradeEntities.GetContext().SaveChanges();
+                    MessageBox.Show("Записи удалены");
+                    List<Product> goods = SportTradeEntities.GetContext().Products.OrderBy(p => p.ProductName).ToList();
+                    DataGridGood.ItemsSource = null;
+                    DataGridGood.ItemsSource = goods;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString(), "Ошибка удаления", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
+        // отображение номеров строк в DataGrid
+        private void DataGridGoodLoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            e.Row.Header = (e.Row.GetIndex() + 1).ToString();
+        }
+    }
+}
+
+//ADDPRODUCTPAGE.XAML
+
+<Page x:Class="SportApp.Pages.AddProductPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SportApp.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Добавление и редактирование"
+      Style="{StaticResource base_page}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="245"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="BtnSave" Grid.Row="12" Content="Сохранить"  
+                HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" 
+                Click="BtnSaveClick" Grid.Column="1" Margin="213,3,222,0"/>
+
+        <TextBlock  Grid.Row="0" Grid.Column="0" Text="Логотип"  Margin="20 0"/>
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Артикул товара"  Margin="20 0"/>
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Категория товара"  Margin="20 0"/>
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="Наименование товара"  Margin="20 0"/>
+        <TextBlock Grid.Row="4" Grid.Column="0" Text="Количество на складе"  Margin="20 0"/>
+        <TextBlock Grid.Row="5" Grid.Column="0" Text="Единица измерения"  Margin="20 0"/>
+        <TextBlock Grid.Row="6" Grid.Column="0" Text="Производитель"  Margin="20 0"/>
+        <TextBlock Grid.Row="7" Grid.Column="0" Text="Поставщик"  Margin="20 0"/>
+        <TextBlock Grid.Row="8" Grid.Column="0" Text="Размер максимальной скидки" Margin="20 0" />
+        <TextBlock Grid.Row="9" Grid.Column="0" Text="Размер действующей скидки" Margin="20 0" />
+        <TextBlock Grid.Row="10" Grid.Column="0" Text="Стоимость за единицу" Margin="20 0" />
+        <TextBlock Grid.Row="11" Grid.Column="0" Text="Описание"  Margin="20 0"/>
+
+
+        <Image x:Name="ImagePhoto" Source="{Binding GetPhoto}" 
+               Grid.Row="0" Grid.Column="1" Margin="10 0 0 0"
+               VerticalAlignment="Stretch" HorizontalAlignment="Left" Width="100"/>
+        <Button x:Name="BtnLoad" Grid.Row="0" Grid.Column="0" Margin="120,5,0,0" 
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Click="BtnLoadClick" Content="Загрузить" Width="79"/>
+        <TextBox x:Name="TextBoxArtikul" Text="{Binding ProductArticleNumber}" 
+                 Grid.Row="1" Grid.Column="1" Padding="0,2" Height="Auto"/>
+        <ComboBox x:Name="ComboCategory"  SelectedItem="{Binding ProductCategory}"
+                  Grid.Row="2" Grid.Column="1"  DisplayMemberPath="ProductCategoryName" 
+                  SelectedValuePath="ProductCategoryID" />
+        <TextBox x:Name="TextBoxProductName" Text="{Binding ProductName}" 
+                 Grid.Row="3" Grid.Column="1" Padding="0,2" Height="Auto"/>
+        <TextBox x:Name="TextBoxProductQuantityInStock" Text="{Binding ProductQuantityInStock}" 
+                 Grid.Row="4" Grid.Column="1" Padding="0,2" Height="Auto"/>
+        <ComboBox x:Name="ComboUnitType"  SelectedItem="{Binding UnitType}"
+                  Grid.Row="5" Grid.Column="1"  DisplayMemberPath="UnitTypeName" 
+                  SelectedValuePath="UnitTypeID" />
+        
+        <ComboBox x:Name="ComboManufacturer"  SelectedItem="{Binding ProductManufacturer}"
+                  Grid.Row="6" Grid.Column="1"  DisplayMemberPath="ProductManufacturerName" 
+                  SelectedValuePath="ProductManufacturerID" />
+        <ComboBox x:Name="ComboSupplier"  SelectedItem="{Binding ProductSupplier}"
+                  Grid.Row="7" Grid.Column="1"  DisplayMemberPath="ProductSupplierName" 
+                  SelectedValuePath="ProductSupplierrID" />
+        <TextBox x:Name="TextBoxProductDiscountAmountMax" Text="{Binding ProductMaxDiscountAmount}"  
+                 Grid.Row="8" Grid.Column="1" Padding="0,2" Height="Auto"/>
+        <TextBox x:Name="TextBoxProductDiscountAmount" Text="{Binding ProductDiscountAmount}"  
+                 Grid.Row="9" Grid.Column="1" Padding="0,2" Height="Auto"/>
+        <TextBox x:Name="TextBoxProductCost" Text="{Binding ProductCost, ConverterCulture='ru-RU'}"  
+                 Grid.Row="10" Grid.Column="1" Padding="0,2" Height="Auto"/>
+        <TextBox x:Name="TextBoxProductDescription" Text="{Binding ProductDescription}" TextWrapping="Wrap" 
+                 Grid.Row="11" Grid.Column="1" Padding="0,2" Height="Auto"/>
+    </Grid>
+</Page>
+
+
+// ADDPRODUCTPAGE.cs
+using Microsoft.Win32;
+using SportApp.Models;
+using System;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media.Imaging;
+
+namespace SportApp.Pages
+{
+    /// <summary>
+    /// Логика взаимодействия для AddProductPage.xaml
+    /// </summary>
+    public partial class AddProductPage : Page
+    {
+        // текущий товар
+        private Product _currentProduct = new Product();
+        // путь к файлу
+        private string _filePath = null;
+        // название текущей главной фотографии
+        private string _photoName = null;
+        // флаг меняется, если фото товара поменялось
+        private bool _photoChanged = false;
+        // текущая папка приложения
+        private static string _currentDirectory =
+            Directory.GetCurrentDirectory() + @"\Images\";
+
+        public AddProductPage(Product selectedProduct)
+        {
+
+            InitializeComponent();
+            LoadAndInitData(selectedProduct);
+        }
+
+        void LoadAndInitData(Product selectedProduct)
+        {     // если передано null, то мы добавляем новый товар
+            if (selectedProduct != null)
+            {
+                _currentProduct = selectedProduct;
+                _filePath = _currentDirectory + _currentProduct.ProductPhoto;
+            }
+            // контекст данных текущий товар
+            DataContext = _currentProduct;
+            _photoName = _currentProduct.ProductPhoto;
+            //загрузка в выпалдающие списки
+            // категории товаров
+            ComboCategory.ItemsSource = SportTradeEntities.GetContext().ProductCategories.
+                ToList();
+            // производители товаров
+            ComboManufacturer.ItemsSource = SportTradeEntities.GetContext().ProductManufacturers.
+                ToList();
+            // поставщики товаров
+            ComboSupplier.ItemsSource = SportTradeEntities.GetContext().ProductSuppliers.
+                ToList();
+            // единицы измерения товаров
+            ComboUnitType.ItemsSource = SportTradeEntities.GetContext().UnitTypes.
+                ToList();
+        }
+
+        /// <summary>
+        /// Проверка полей ввод на корректыне данные
+        /// </summary>
+        /// <returns>текст StringBuilder содержащий ошибки, если они есть</returns>
+        private StringBuilder CheckFields()
+        {
+            StringBuilder s = new StringBuilder();
+            // проверка полей на содержимое
+            if (string.IsNullOrWhiteSpace(_currentProduct.ProductArticleNumber))
+                s.AppendLine("Поле артикул пустое");
+            if (string.IsNullOrWhiteSpace(_currentProduct.ProductName))
+                s.AppendLine("Поле название пустое");
+            if (_currentProduct.ProductCategory == null)
+                s.AppendLine("Выберите категорию продукции");
+            if (_currentProduct.ProductManufacturer == null)
+                s.AppendLine("Выберите производителя");
+            if (_currentProduct.ProductSupplier == null)
+                s.AppendLine("Выберите поставщика");
+            if (_currentProduct.UnitType == null)
+                s.AppendLine("Выберите единицу измерения");
+            if (string.IsNullOrWhiteSpace(TextBoxProductCost.Text))
+                s.AppendLine("Поле стоимость пустое");
+            if (string.IsNullOrWhiteSpace(_currentProduct.ProductDescription))
+                s.AppendLine("Поле описание пустое");
+
+            if (string.IsNullOrWhiteSpace(TextBoxProductQuantityInStock.Text))
+                s.AppendLine("Поле количество пустое");
+            if (string.IsNullOrWhiteSpace(TextBoxProductDiscountAmount.Text))
+                s.AppendLine("Поле скидка пустое");
+            if (string.IsNullOrWhiteSpace(TextBoxProductDiscountAmountMax.Text))
+                s.AppendLine("Поле максимальная скидка пустое");
+
+            // если поле стоимость не пустое,
+            // проверяем данные на корректность
+            if (!string.IsNullOrWhiteSpace(TextBoxProductCost.Text))
+            {
+                double x = 0;
+                if (!double.TryParse(TextBoxProductCost.Text, out x))
+                    s.AppendLine("Стоимость только число");
+                else if (x < 0)
+                {
+                    s.AppendLine("Стоимость не может быть отрицательной");
+                }
+            }
+            // если поле количество не пустое,
+            // проверяем данные на корректность
+            if (!string.IsNullOrWhiteSpace(TextBoxProductQuantityInStock.Text))
+            {
+                int x = 0;
+                if (!int.TryParse(TextBoxProductQuantityInStock.Text, out x))
+                    s.AppendLine("Количество только число");
+                else if (x < 0)
+                {
+                    s.AppendLine("Количество не может быть отрицательной");
+                }
+            }
+         
+            // если поле скидка не пустое,
+            // проверяем данные на корректность
+            if (!string.IsNullOrWhiteSpace(TextBoxProductDiscountAmount.Text))
+            {
+                int x = 0;
+                if (!int.TryParse(TextBoxProductDiscountAmount.Text, out x))
+                    s.AppendLine("Скидка только число");
+                else if (x < 0)
+                {
+                    s.AppendLine("Скидка не может быть отрицательной");
+                }
+            }
+
+            // если поле максимальная скидка не пустое,
+            // проверяем данные на корректность
+            if (!string.IsNullOrWhiteSpace(TextBoxProductDiscountAmountMax.Text))
+            {
+                int x = 0;
+                if (!int.TryParse(TextBoxProductDiscountAmountMax.Text, out x))
+                    s.AppendLine("Максимальная скидка только число");
+                else if (x < 0)
+                {
+                    s.AppendLine("Максимальная скидка не может быть отрицательной");
+                }
+            }
+            // максимальная скидка не может быть меньше, чем текущая скидка
+            if (!string.IsNullOrWhiteSpace(TextBoxProductDiscountAmount.Text) && !string.IsNullOrWhiteSpace(TextBoxProductDiscountAmountMax.Text))
+            {
+                int x, y;
+                if (int.TryParse(TextBoxProductDiscountAmountMax.Text, out x) && int.TryParse(TextBoxProductDiscountAmount.Text, out y))
+                {
+                    if (x < y)
+                    {
+                        s.AppendLine("Максимальная скидка не может быть меньше действующей скидки");
+                    }
+                }
+            }
+             return s;
+        }
+
+        private void BtnSaveClick(object sender, RoutedEventArgs e)
+        {
+            StringBuilder _error = CheckFields();
+            // если ошибки есть, то выводим ошибки в MessageBox
+            // и прерываем выполнение 
+            if (_error.Length > 0)
+            {
+                MessageBox.Show(_error.ToString());
+                return;
+            }
+            // проверка полей прошла успешно
+            // если товар новый, то его ID == 0
+            if (_currentProduct.ProductID == 0)
+            {
+                // добавление нового товара, 
+                // формируем новое название файла картинки,
+                // так как в папке может быть файл с тем же именем
+                if (_filePath != null)
+                {
+                    string photo = ChangePhotoName();
+                    // путь куда нужно скопировать файл
+                    string dest = _currentDirectory + photo;
+                    File.Copy(_filePath, dest);
+                    _currentProduct.ProductPhoto = photo;
+                }
+                // добавляем товар в БД
+                SportTradeEntities.GetContext().Products.Add(_currentProduct);
+            }
+            try
+            { // если изменилось изображение
+                if (_photoChanged)
+                {
+                    string photo = ChangePhotoName();
+                    string dest = _currentDirectory + photo;
+                    File.Copy(_filePath, dest);
+                    _currentProduct.ProductPhoto = photo;
+                }
+                SportTradeEntities.GetContext().SaveChanges();  // Сохраняем изменения в БД
+                MessageBox.Show("Запись Изменена");
+                Manager.MainFrame.GoBack();  // Возвращаемся на предыдущую форму
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+        }
+
+        // загрузка фото 
+        private void BtnLoadClick(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                //Диалог открытия файла
+                OpenFileDialog op = new OpenFileDialog();
+                op.Title = "Select a picture";
+                op.Filter = "JPEG Files (*.jpeg)|*.jpeg|PNG Files (*.png)|*.png|JPG Files (*.jpg)|*.jpg|GIF Files (*.gif)|*.gif";
+                // диалог вернет true, если файл был открыт
+                if (op.ShowDialog() == true)
+                {
+                    // проверка размера файла
+                    // по условию файл дожен быть не более 2Мб.
+                    FileInfo fileInfo = new FileInfo(op.FileName);
+                    if (fileInfo.Length > (1024 * 1024 * 2))
+                    {
+                        // размер файла меньше 2Мб. Поэтому выбрасывается новое исключение
+                        throw new Exception("Размер файла должен быть меньше 2Мб");
+                    }
+                    ImagePhoto.Source = new BitmapImage(new Uri(op.FileName));
+                    _photoName = op.SafeFileName;
+                    _filePath = op.FileName;
+                    _photoChanged = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                _filePath = null;
+            }
+        }
+        //подбор имени файла
+        string ChangePhotoName()
+        {
+            string x = _currentDirectory + _photoName;
+            string photoname = _photoName;
+            int i = 0;
+            if (File.Exists(x))
+            {
+                while (File.Exists(x))
+                {
+                    i++;
+                    x = _currentDirectory + i.ToString() + photoname;
+                }
+                photoname = i.ToString() + photoname;
+            }
+            return photoname;
+        }
+
+      
+    }
+}

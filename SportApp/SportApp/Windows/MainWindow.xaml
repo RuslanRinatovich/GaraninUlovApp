@@ -1,0 +1,47 @@
+﻿<Window x:Class="SportApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SportApp" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+              Title="{Binding ElementName=MainFrame, Path=Content.Title}" 
+        WindowStartupLocation="CenterScreen"
+        Style="{StaticResource base_window}"
+        Height="450" Width="800" Icon="/SportApp;component/Resources/icon.ico" 
+        Closing="WindowClosing"
+        Closed="WindowClosed" >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <materialDesign:ColorZone   Padding="5"   Background="{StaticResource main}"   ClipToBounds="False"  Foreground="White"  Mode="Custom">
+            <DockPanel LastChildFill="True">
+                <TextBlock x:Name="TextBlockName" Width="auto" Height="40" DockPanel.Dock="Right" Foreground="Black"/>
+                <StackPanel    Orientation="Horizontal" DockPanel.Dock="Left">
+                   
+                    <Image Source="/SportApp;component/Resources/logo.png" Margin="10" 
+               HorizontalAlignment="Left"/>
+                    <TextBlock      Margin="16,0"      VerticalAlignment="Center"  FontWeight="Bold" Foreground="{StaticResource MaterialDesignShadowBrush}" 
+                                Text="ООО УЛОВ" Style="{StaticResource MaterialDesignHeadline5TextBlock}" />
+                    <!--<materialDesign:Badged      VerticalAlignment="Center"      Badge="123">
+                        <Button        Content="Some action" />
+                    </materialDesign:Badged>-->
+                    <Button x:Name="BtnEditGoods"  Content="{materialDesign:PackIcon Kind=Fish}" ToolTip="Товары" Style="{StaticResource MaterialDesignFlatLightBgButton}" Click="BtnEditGoodsClick"/>
+                    <Button x:Name="BtnEditOrders"  Content="{materialDesign:PackIcon Kind=Ballot}"   ToolTip="Заказы" Style="{StaticResource MaterialDesignFlatLightBgButton}" Click="BtnEditOrders_Click"/>
+                    <Button x:Name="BtnBack"  Content="{materialDesign:PackIcon Kind=ArrowBack}"   ToolTip="Назад"   Style="{StaticResource MaterialDesignFlatLightBgButton}" Click="BtnBackClick"/>
+                 
+                </StackPanel>
+            </DockPanel>
+        </materialDesign:ColorZone>
+        <Frame x:Name="MainFrame" Grid.Row="1" BorderBrush="{StaticResource akcent}"
+               NavigationUIVisibility="Hidden"
+               BorderThickness="1" 
+               ContentRendered="MainFrameContentRendered"/>
+        
+        
+        <Grid Grid.Row="2" Background="{StaticResource additional}"/>
+    </Grid>
+</Window>

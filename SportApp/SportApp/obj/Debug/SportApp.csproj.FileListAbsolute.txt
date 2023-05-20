@@ -1,0 +1,104 @@
+H:\SHARE\МДК 03.02\ДЕМОЭКЗАМЕН 2022\09_1.5-2022_2\Выполнение\Program\SportApp\SportApp\obj\Debug\SportApp.csprojAssemblyReference.cache
+H:\SHARE\МДК 03.02\ДЕМОЭКЗАМЕН 2022\09_1.5-2022_2\Выполнение\Program\SportApp\SportApp\obj\Debug\Windows\MainWindow.g.cs
+H:\SHARE\МДК 03.02\ДЕМОЭКЗАМЕН 2022\09_1.5-2022_2\Выполнение\Program\SportApp\SportApp\obj\Debug\App.g.cs
+H:\SHARE\МДК 03.02\ДЕМОЭКЗАМЕН 2022\09_1.5-2022_2\Выполнение\Program\SportApp\SportApp\obj\Debug\SportApp_Content.g.cs
+H:\SHARE\МДК 03.02\ДЕМОЭКЗАМЕН 2022\09_1.5-2022_2\Выполнение\Program\SportApp\SportApp\obj\Debug\SportApp_MarkupCompile.cache
+H:\SHARE\МДК 03.02\ДЕМОЭКЗАМЕН 2022\09_1.5-2022_2\Выполнение\Program\SportApp\SportApp\obj\Debug\SportApp_MarkupCompile.lref
+H:\SHARE\МДК 03.02\ДЕМОЭКЗАМЕН 2022\09_1.5-2022_2\Выполнение\Program\SportApp\SportApp\bin\Debug\SportApp.exe.config
+H:\SHARE\МДК 03.02\ДЕМОЭКЗАМЕН 2022\09_1.5-2022_2\Выполнение\Program\SportApp\SportApp\bin\Debug\SportApp.exe
+H:\SHARE\МДК 03.02\ДЕМОЭКЗАМЕН 2022\09_1.5-2022_2\Выполнение\Program\SportApp\SportApp\bin\Debug\SportApp.pdb
+H:\SHARE\МДК 03.02\ДЕМОЭКЗАМЕН 2022\09_1.5-2022_2\Выполнение\Program\SportApp\SportApp\bin\Debug\EntityFramework.dll
+H:\SHARE\МДК 03.02\ДЕМОЭКЗАМЕН 2022\09_1.5-2022_2\Выполнение\Program\SportApp\SportApp\bin\Debug\EntityFramework.SqlServer.dll
+H:\SHARE\МДК 03.02\ДЕМОЭКЗАМЕН 2022\09_1.5-2022_2\Выполнение\Program\SportApp\SportApp\bin\Debug\EntityFramework.xml
+H:\SHARE\МДК 03.02\ДЕМОЭКЗАМЕН 2022\09_1.5-2022_2\Выполнение\Program\SportApp\SportApp\bin\Debug\EntityFramework.SqlServer.xml
+H:\SHARE\МДК 03.02\ДЕМОЭКЗАМЕН 2022\09_1.5-2022_2\Выполнение\Program\SportApp\SportApp\bin\Debug\ru\EntityFramework.resources.dll
+H:\SHARE\МДК 03.02\ДЕМОЭКЗАМЕН 2022\09_1.5-2022_2\Выполнение\Program\SportApp\SportApp\obj\Debug\Windows\MainWindow.baml
+H:\SHARE\МДК 03.02\ДЕМОЭКЗАМЕН 2022\09_1.5-2022_2\Выполнение\Program\SportApp\SportApp\obj\Debug\SportApp.g.resources
+H:\SHARE\МДК 03.02\ДЕМОЭКЗАМЕН 2022\09_1.5-2022_2\Выполнение\Program\SportApp\SportApp\obj\Debug\SportApp.Properties.Resources.resources
+H:\SHARE\МДК 03.02\ДЕМОЭКЗАМЕН 2022\09_1.5-2022_2\Выполнение\Program\SportApp\SportApp\obj\Debug\SportApp.csproj.GenerateResource.cache
+H:\SHARE\МДК 03.02\ДЕМОЭКЗАМЕН 2022\09_1.5-2022_2\Выполнение\Program\SportApp\SportApp\obj\Debug\SportApp.csproj.CoreCompileInputs.cache
+H:\SHARE\МДК 03.02\ДЕМОЭКЗАМЕН 2022\09_1.5-2022_2\Выполнение\Program\SportApp\SportApp\obj\Debug\SportApp.csproj.CopyComplete
+H:\SHARE\МДК 03.02\ДЕМОЭКЗАМЕН 2022\09_1.5-2022_2\Выполнение\Program\SportApp\SportApp\obj\Debug\SportApp.exe
+H:\SHARE\МДК 03.02\ДЕМОЭКЗАМЕН 2022\09_1.5-2022_2\Выполнение\Program\SportApp\SportApp\obj\Debug\SportApp.pdb
+H:\SHARE\МДК 03.02\ДЕМОЭКЗАМЕН 2022\09_1.5-2022_2\Выполнение\Program\SportApp\SportApp\obj\Debug\Windows\LoginWindow.g.cs
+H:\SHARE\МДК 03.02\ДЕМОЭКЗАМЕН 2022\09_1.5-2022_2\Выполнение\Program\SportApp\SportApp\obj\Debug\Pages\CatalogPage.g.cs
+H:\SHARE\МДК 03.02\ДЕМОЭКЗАМЕН 2022\09_1.5-2022_2\Выполнение\Program\SportApp\SportApp\obj\Debug\Pages\OrdersPage.g.cs
+H:\SHARE\МДК 03.02\ДЕМОЭКЗАМЕН 2022\09_1.5-2022_2\Выполнение\Program\SportApp\SportApp\obj\Debug\Pages\ProductsPage.g.cs
+H:\SHARE\МДК 03.02\ДЕМОЭКЗАМЕН 2022\09_1.5-2022_2\Выполнение\Program\SportApp\SportApp\obj\Debug\App.baml
+H:\SHARE\МДК 03.02\ДЕМОЭКЗАМЕН 2022\09_1.5-2022_2\Выполнение\Program\SportApp\SportApp\obj\Debug\Windows\LoginWindow.baml
+H:\SHARE\МДК 03.02\ДЕМОЭКЗАМЕН 2022\09_1.5-2022_2\Выполнение\Program\SportApp\SportApp\obj\Debug\Pages\CatalogPage.baml
+H:\SHARE\МДК 03.02\ДЕМОЭКЗАМЕН 2022\09_1.5-2022_2\Выполнение\Program\SportApp\SportApp\obj\Debug\Pages\OrdersPage.baml
+H:\SHARE\МДК 03.02\ДЕМОЭКЗАМЕН 2022\09_1.5-2022_2\Выполнение\Program\SportApp\SportApp\obj\Debug\Pages\ProductsPage.baml
+h:\SHARE\МДК 03.02\ДЕМОЭКЗАМЕН 2022\09_1.5-2022_2\Выполнение\Program\SportApp\SportApp\obj\Debug\Pages\AddProductPage.g.cs
+h:\SHARE\МДК 03.02\ДЕМОЭКЗАМЕН 2022\09_1.5-2022_2\Выполнение\Program\SportApp\SportApp\obj\Debug\Pages\AddProductPage.baml
+h:\SHARE\МДК 03.02\ДЕМОЭКЗАМЕН 2022\09_1.5-2022_2\Выполнение\Program\SportApp\SportApp\obj\Debug\Windows\NewOrderWindow.g.cs
+h:\SHARE\МДК 03.02\ДЕМОЭКЗАМЕН 2022\09_1.5-2022_2\Выполнение\Program\SportApp\SportApp\obj\Debug\Windows\NewOrderWindow.baml
+h:\SHARE\МДК 03.02\ДЕМОЭКЗАМЕН 2022\09_1.5-2022_2\Выполнение\Program\SportApp\SportApp\obj\Debug\SportApp.csproj.ResolveComReference.cache
+h:\SHARE\МДК 03.02\ДЕМОЭКЗАМЕН 2022\09_1.5-2022_2\Выполнение\Program\SportApp\SportApp\obj\Debug\Windows\OrderTicketWindow.g.cs
+h:\SHARE\МДК 03.02\ДЕМОЭКЗАМЕН 2022\09_1.5-2022_2\Выполнение\Program\SportApp\SportApp\obj\Debug\Windows\OrderTicketWindow.baml
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\bin\Debug\SportApp.exe.config
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\bin\Debug\SportApp.exe
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\bin\Debug\SportApp.pdb
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\bin\Debug\EntityFramework.dll
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\bin\Debug\EntityFramework.SqlServer.dll
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\bin\Debug\EntityFramework.xml
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\bin\Debug\EntityFramework.SqlServer.xml
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\bin\Debug\ru\EntityFramework.resources.dll
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\SportApp.csprojAssemblyReference.cache
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\SportApp.csproj.ResolveComReference.cache
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\Pages\AddProductPage.g.cs
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\Pages\CatalogPage.g.cs
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\Pages\OrdersPage.g.cs
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\Pages\ProductsPage.g.cs
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\Windows\MainWindow.g.cs
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\Windows\LoginWindow.g.cs
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\Windows\NewOrderWindow.g.cs
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\Windows\OrderTicketWindow.g.cs
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\App.g.cs
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\SportApp_Content.g.cs
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\SportApp_MarkupCompile.cache
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\SportApp_MarkupCompile.lref
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\App.baml
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\Pages\AddProductPage.baml
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\Pages\CatalogPage.baml
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\Pages\OrdersPage.baml
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\Pages\ProductsPage.baml
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\Windows\MainWindow.baml
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\Windows\LoginWindow.baml
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\Windows\NewOrderWindow.baml
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\Windows\OrderTicketWindow.baml
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\SportApp.g.resources
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\SportApp.Properties.Resources.resources
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\SportApp.csproj.GenerateResource.cache
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\SportApp.csproj.CoreCompileInputs.cache
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\SportApp.csproj.CopyComplete
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\SportApp.exe
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\SportApp.pdb
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\bin\Debug\MaterialDesignColors.dll
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\bin\Debug\MaterialDesignThemes.Wpf.dll
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\bin\Debug\Microsoft.Xaml.Behaviors.dll
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\bin\Debug\MaterialDesignColors.pdb
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\bin\Debug\MaterialDesignThemes.Wpf.pdb
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\bin\Debug\MaterialDesignThemes.Wpf.xml
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\bin\Debug\Microsoft.Xaml.Behaviors.xml
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\Dictionary1.baml
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\bin\Debug\Xceed.Wpf.AvalonDock.dll
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Aero.dll
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Metro.dll
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\bin\Debug\Xceed.Wpf.AvalonDock.Themes.VS2010.dll
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\bin\Debug\Xceed.Wpf.Toolkit.dll
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\bin\Debug\cs-CZ\Xceed.Wpf.AvalonDock.resources.dll
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\bin\Debug\de\Xceed.Wpf.AvalonDock.resources.dll
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\bin\Debug\es\Xceed.Wpf.AvalonDock.resources.dll
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\bin\Debug\fr\Xceed.Wpf.AvalonDock.resources.dll
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\bin\Debug\hu\Xceed.Wpf.AvalonDock.resources.dll
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\bin\Debug\it\Xceed.Wpf.AvalonDock.resources.dll
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\bin\Debug\ja-JP\Xceed.Wpf.AvalonDock.resources.dll
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\bin\Debug\nl-BE\Xceed.Wpf.AvalonDock.resources.dll
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\bin\Debug\pt-BR\Xceed.Wpf.AvalonDock.resources.dll
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\bin\Debug\ro\Xceed.Wpf.AvalonDock.resources.dll
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\bin\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\bin\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
