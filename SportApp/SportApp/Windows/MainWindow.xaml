@@ -8,7 +8,7 @@
               Title="{Binding ElementName=MainFrame, Path=Content.Title}" 
         WindowStartupLocation="CenterScreen"
         Style="{StaticResource base_window}"
-        Height="450" Width="800" Icon="/SportApp;component/Resources/icon.ico" 
+        Height="450" Width="800" Icon="/SportApp;component/Resources/fishing.ico" 
         Closing="WindowClosing"
         Closed="WindowClosed" >
     <Grid>

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище SportTradeModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище DEMO_2022_VAR9Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Order">
           <Key>
             <PropertyRef Name="OrderID" />
@@ -30,14 +30,14 @@
           <Key>
             <PropertyRef Name="OrderStatusID" />
           </Key>
-          <Property Name="OrderStatusID" Type="int" Nullable="false" />
+          <Property Name="OrderStatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="OrderStatusName" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="PickupPoint">
           <Key>
             <PropertyRef Name="PickupPointID" />
           </Key>
-          <Property Name="PickupPointID" Type="int" Nullable="false" />
+          <Property Name="PickupPointID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Address" Type="varchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="Product">
@@ -62,21 +62,21 @@
           <Key>
             <PropertyRef Name="ProductCategoryID" />
           </Key>
-          <Property Name="ProductCategoryID" Type="int" Nullable="false" />
+          <Property Name="ProductCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ProductCategoryName" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="ProductManufacturer">
           <Key>
             <PropertyRef Name="ProductManufacturerID" />
           </Key>
-          <Property Name="ProductManufacturerID" Type="int" Nullable="false" />
+          <Property Name="ProductManufacturerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ProductManufacturerName" Type="nvarchar" MaxLength="200" Nullable="false" />
         </EntityType>
         <EntityType Name="ProductSupplier">
           <Key>
             <PropertyRef Name="ProductSupplierID" />
           </Key>
-          <Property Name="ProductSupplierID" Type="int" Nullable="false" />
+          <Property Name="ProductSupplierID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ProductSupplierName" Type="nvarchar" MaxLength="200" Nullable="false" />
         </EntityType>
         <EntityType Name="Role">
@@ -86,11 +86,21 @@
           <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="RoleName" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
         <EntityType Name="UnitType">
           <Key>
             <PropertyRef Name="UnitTypeID" />
           </Key>
-          <Property Name="UnitTypeID" Type="int" Nullable="false" />
+          <Property Name="UnitTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UnitTypeName" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="User">
@@ -225,7 +235,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Хранилище SportTradeModelContainer">
+        <EntityContainer Name="Хранилище DEMO_2022_VAR9ModelContainer">
           <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OrderProduct" EntityType="Self.OrderProduct" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" Schema="dbo" store:Type="Tables" />
@@ -235,6 +245,7 @@
           <EntitySet Name="ProductManufacturer" EntityType="Self.ProductManufacturer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProductSupplier" EntityType="Self.ProductSupplier" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UnitType" EntityType="Self.UnitType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Order_OrderStatus" Association="Self.FK_Order_OrderStatus">
@@ -278,10 +289,11 @@
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="SportTradeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="DEMO_2022_VAR9Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Order">
           <Key>
             <PropertyRef Name="OrderID" />
@@ -309,11 +321,11 @@
           <NavigationProperty Name="Order" Relationship="Self.FK_OrderProduct_Order" FromRole="OrderProduct" ToRole="Order" />
           <NavigationProperty Name="Product" Relationship="Self.FK_OrderProduct_Product" FromRole="OrderProduct" ToRole="Product" />
         </EntityType>
-        <EntityType Name="OrderStatus">
+        <EntityType Name="OrderStatu">
           <Key>
             <PropertyRef Name="OrderStatusID" />
           </Key>
-          <Property Name="OrderStatusID" Type="Int32" Nullable="false" />
+          <Property Name="OrderStatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="OrderStatusName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Orders" Relationship="Self.FK_Order_OrderStatus" FromRole="OrderStatus" ToRole="Order" />
         </EntityType>
@@ -321,7 +333,7 @@
           <Key>
             <PropertyRef Name="PickupPointID" />
           </Key>
-          <Property Name="PickupPointID" Type="Int32" Nullable="false" />
+          <Property Name="PickupPointID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Orders" Relationship="Self.FK_Order_PickupPoint" FromRole="PickupPoint" ToRole="Order" />
         </EntityType>
@@ -352,7 +364,7 @@
           <Key>
             <PropertyRef Name="ProductCategoryID" />
           </Key>
-          <Property Name="ProductCategoryID" Type="Int32" Nullable="false" />
+          <Property Name="ProductCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ProductCategoryName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Products" Relationship="Self.FK_Product_ProductCategory" FromRole="ProductCategory" ToRole="Product" />
         </EntityType>
@@ -360,7 +372,7 @@
           <Key>
             <PropertyRef Name="ProductManufacturerID" />
           </Key>
-          <Property Name="ProductManufacturerID" Type="Int32" Nullable="false" />
+          <Property Name="ProductManufacturerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ProductManufacturerName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Products" Relationship="Self.FK_Product_ProductManufacturer" FromRole="ProductManufacturer" ToRole="Product" />
         </EntityType>
@@ -368,7 +380,7 @@
           <Key>
             <PropertyRef Name="ProductSupplierID" />
           </Key>
-          <Property Name="ProductSupplierID" Type="Int32" Nullable="false" />
+          <Property Name="ProductSupplierID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ProductSupplierName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Products" Relationship="Self.FK_Product_ProductSupplier" FromRole="ProductSupplier" ToRole="Product" />
         </EntityType>
@@ -380,11 +392,21 @@
           <Property Name="RoleName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Users" Relationship="Self.FK_User_Role" FromRole="Role" ToRole="User" />
         </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
         <EntityType Name="UnitType">
           <Key>
             <PropertyRef Name="UnitTypeID" />
           </Key>
-          <Property Name="UnitTypeID" Type="Int32" Nullable="false" />
+          <Property Name="UnitTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Products" Relationship="Self.FK_Product_UnitType" FromRole="UnitType" ToRole="Product" />
         </EntityType>
@@ -403,7 +425,7 @@
           <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
         </EntityType>
         <Association Name="FK_Order_OrderStatus">
-          <End Role="OrderStatus" Type="SportTradeModel.OrderStatus" Multiplicity="1" />
+          <End Role="OrderStatus" Type="Self.OrderStatu" Multiplicity="1" />
           <End Role="Order" Type="Self.Order" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="OrderStatus">
@@ -525,17 +547,18 @@
         <EntityContainer Name="SportTradeEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Orders" EntityType="Self.Order" />
           <EntitySet Name="OrderProducts" EntityType="Self.OrderProduct" />
-          <EntitySet Name="OrderStatus1" EntityType="SportTradeModel.OrderStatus" />
+          <EntitySet Name="OrderStatus" EntityType="Self.OrderStatu" />
           <EntitySet Name="PickupPoints" EntityType="Self.PickupPoint" />
           <EntitySet Name="Products" EntityType="Self.Product" />
           <EntitySet Name="ProductCategories" EntityType="Self.ProductCategory" />
           <EntitySet Name="ProductManufacturers" EntityType="Self.ProductManufacturer" />
           <EntitySet Name="ProductSuppliers" EntityType="Self.ProductSupplier" />
           <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="UnitTypes" EntityType="Self.UnitType" />
           <EntitySet Name="Users" EntityType="Self.User" />
           <AssociationSet Name="FK_Order_OrderStatus" Association="Self.FK_Order_OrderStatus">
-            <End Role="OrderStatus" EntitySet="OrderStatus1" />
+            <End Role="OrderStatus" EntitySet="OrderStatus" />
             <End Role="Order" EntitySet="Orders" />
           </AssociationSet>
           <AssociationSet Name="FK_Order_PickupPoint" Association="Self.FK_Order_PickupPoint">
@@ -580,9 +603,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище SportTradeModelContainer" CdmEntityContainer="SportTradeEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище DEMO_2022_VAR9ModelContainer" CdmEntityContainer="SportTradeEntities">
           <EntitySetMapping Name="Orders">
-            <EntityTypeMapping TypeName="SportTradeModel.Order">
+            <EntityTypeMapping TypeName="DEMO_2022_VAR9Model.Order">
               <MappingFragment StoreEntitySet="Order">
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
                 <ScalarProperty Name="OrderStatusID" ColumnName="OrderStatusID" />
@@ -595,7 +618,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OrderProducts">
-            <EntityTypeMapping TypeName="SportTradeModel.OrderProduct">
+            <EntityTypeMapping TypeName="DEMO_2022_VAR9Model.OrderProduct">
               <MappingFragment StoreEntitySet="OrderProduct">
                 <ScalarProperty Name="OrderProductID" ColumnName="OrderProductID" />
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
@@ -604,8 +627,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="OrderStatus1">
-            <EntityTypeMapping TypeName="SportTradeModel.OrderStatus">
+          <EntitySetMapping Name="OrderStatus">
+            <EntityTypeMapping TypeName="DEMO_2022_VAR9Model.OrderStatu">
               <MappingFragment StoreEntitySet="OrderStatus">
                 <ScalarProperty Name="OrderStatusID" ColumnName="OrderStatusID" />
                 <ScalarProperty Name="OrderStatusName" ColumnName="OrderStatusName" />
@@ -613,7 +636,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PickupPoints">
-            <EntityTypeMapping TypeName="SportTradeModel.PickupPoint">
+            <EntityTypeMapping TypeName="DEMO_2022_VAR9Model.PickupPoint">
               <MappingFragment StoreEntitySet="PickupPoint">
                 <ScalarProperty Name="PickupPointID" ColumnName="PickupPointID" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
@@ -621,7 +644,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Products">
-            <EntityTypeMapping TypeName="SportTradeModel.Product">
+            <EntityTypeMapping TypeName="DEMO_2022_VAR9Model.Product">
               <MappingFragment StoreEntitySet="Product">
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
                 <ScalarProperty Name="ProductArticleNumber" ColumnName="ProductArticleNumber" />
@@ -640,7 +663,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ProductCategories">
-            <EntityTypeMapping TypeName="SportTradeModel.ProductCategory">
+            <EntityTypeMapping TypeName="DEMO_2022_VAR9Model.ProductCategory">
               <MappingFragment StoreEntitySet="ProductCategory">
                 <ScalarProperty Name="ProductCategoryID" ColumnName="ProductCategoryID" />
                 <ScalarProperty Name="ProductCategoryName" ColumnName="ProductCategoryName" />
@@ -648,7 +671,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ProductManufacturers">
-            <EntityTypeMapping TypeName="SportTradeModel.ProductManufacturer">
+            <EntityTypeMapping TypeName="DEMO_2022_VAR9Model.ProductManufacturer">
               <MappingFragment StoreEntitySet="ProductManufacturer">
                 <ScalarProperty Name="ProductManufacturerID" ColumnName="ProductManufacturerID" />
                 <ScalarProperty Name="ProductManufacturerName" ColumnName="ProductManufacturerName" />
@@ -656,7 +679,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ProductSuppliers">
-            <EntityTypeMapping TypeName="SportTradeModel.ProductSupplier">
+            <EntityTypeMapping TypeName="DEMO_2022_VAR9Model.ProductSupplier">
               <MappingFragment StoreEntitySet="ProductSupplier">
                 <ScalarProperty Name="ProductSupplierID" ColumnName="ProductSupplierID" />
                 <ScalarProperty Name="ProductSupplierName" ColumnName="ProductSupplierName" />
@@ -664,15 +687,26 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Roles">
-            <EntityTypeMapping TypeName="SportTradeModel.Role">
+            <EntityTypeMapping TypeName="DEMO_2022_VAR9Model.Role">
               <MappingFragment StoreEntitySet="Role">
                 <ScalarProperty Name="RoleID" ColumnName="RoleID" />
                 <ScalarProperty Name="RoleName" ColumnName="RoleName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DEMO_2022_VAR9Model.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="UnitTypes">
-            <EntityTypeMapping TypeName="SportTradeModel.UnitType">
+            <EntityTypeMapping TypeName="DEMO_2022_VAR9Model.UnitType">
               <MappingFragment StoreEntitySet="UnitType">
                 <ScalarProperty Name="UnitTypeID" ColumnName="UnitTypeID" />
                 <ScalarProperty Name="UnitTypeName" ColumnName="UnitTypeName" />
@@ -680,7 +714,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="SportTradeModel.User">
+            <EntityTypeMapping TypeName="DEMO_2022_VAR9Model.User">
               <MappingFragment StoreEntitySet="User">
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="UserLogin" ColumnName="UserLogin" />

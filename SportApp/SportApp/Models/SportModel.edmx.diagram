@@ -4,28 +4,29 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="1958523d731d47ed92a792bc1cf9f8a8" Name="Diagram1" ZoomLevel="81">
-        <EntityTypeShape EntityType="SportTradeModel.Order" Width="1.5" PointX="3" PointY="15.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="SportTradeModel.OrderProduct" Width="1.5" PointX="5.25" PointY="2.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SportTradeModel.OrderStatus" Width="1.5" PointX="0.75" PointY="13.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SportTradeModel.PickupPoint" Width="1.5" PointX="0.75" PointY="15.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SportTradeModel.Product" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="SportTradeModel.ProductCategory" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SportTradeModel.ProductManufacturer" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SportTradeModel.ProductSupplier" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="SportTradeModel.Role" Width="1.5" PointX="1.5" PointY="21.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SportTradeModel.UnitType" Width="1.5" PointX="0.75" PointY="10.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="SportTradeModel.User" Width="1.5" PointX="0.75" PointY="17.875" IsExpanded="true" />
-        <AssociationConnector Association="SportTradeModel.FK_Order_OrderStatus" ManuallyRouted="false" />
-        <AssociationConnector Association="SportTradeModel.FK_Order_PickupPoint" ManuallyRouted="false" />
-        <AssociationConnector Association="SportTradeModel.FK_Order_User" ManuallyRouted="false" />
-        <AssociationConnector Association="SportTradeModel.FK_OrderProduct_Order" ManuallyRouted="false" />
-        <AssociationConnector Association="SportTradeModel.FK_OrderProduct_Product" ManuallyRouted="false" />
-        <AssociationConnector Association="SportTradeModel.FK_Product_ProductCategory" ManuallyRouted="false" />
-        <AssociationConnector Association="SportTradeModel.FK_Product_ProductManufacturer" ManuallyRouted="false" />
-        <AssociationConnector Association="SportTradeModel.FK_Product_ProductSupplier" ManuallyRouted="false" />
-        <AssociationConnector Association="SportTradeModel.FK_Product_UnitType" ManuallyRouted="false" />
-        <AssociationConnector Association="SportTradeModel.FK_User_Role" ManuallyRouted="false" />
+      <Diagram DiagramId="29c5ba7fd01143498be237147ea38fa9" Name="Diagram1">
+        <EntityTypeShape EntityType="DEMO_2022_VAR9Model.Order" Width="1.5" PointX="3" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DEMO_2022_VAR9Model.OrderProduct" Width="1.5" PointX="5.25" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DEMO_2022_VAR9Model.OrderStatu" Width="1.5" PointX="0.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DEMO_2022_VAR9Model.PickupPoint" Width="1.5" PointX="0.75" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DEMO_2022_VAR9Model.Product" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DEMO_2022_VAR9Model.ProductCategory" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DEMO_2022_VAR9Model.ProductManufacturer" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DEMO_2022_VAR9Model.ProductSupplier" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="DEMO_2022_VAR9Model.Role" Width="1.5" PointX="1.5" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DEMO_2022_VAR9Model.sysdiagram" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DEMO_2022_VAR9Model.UnitType" Width="1.5" PointX="0.75" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DEMO_2022_VAR9Model.User" Width="1.5" PointX="0.75" PointY="17.875" IsExpanded="true" />
+        <AssociationConnector Association="DEMO_2022_VAR9Model.FK_Order_OrderStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="DEMO_2022_VAR9Model.FK_Order_PickupPoint" ManuallyRouted="false" />
+        <AssociationConnector Association="DEMO_2022_VAR9Model.FK_Order_User" ManuallyRouted="false" />
+        <AssociationConnector Association="DEMO_2022_VAR9Model.FK_OrderProduct_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="DEMO_2022_VAR9Model.FK_OrderProduct_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="DEMO_2022_VAR9Model.FK_Product_ProductCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="DEMO_2022_VAR9Model.FK_Product_ProductManufacturer" ManuallyRouted="false" />
+        <AssociationConnector Association="DEMO_2022_VAR9Model.FK_Product_ProductSupplier" ManuallyRouted="false" />
+        <AssociationConnector Association="DEMO_2022_VAR9Model.FK_Product_UnitType" ManuallyRouted="false" />
+        <AssociationConnector Association="DEMO_2022_VAR9Model.FK_User_Role" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

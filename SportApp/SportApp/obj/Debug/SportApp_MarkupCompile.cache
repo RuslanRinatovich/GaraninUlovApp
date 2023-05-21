@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\
+C:\DIPLOMS\Garanin\SportApp\SportApp\obj\Debug\
 SportApp
 none
 false
 DEBUG;TRACE
-h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\App.xaml
-9-678549539
+C:\DIPLOMS\Garanin\SportApp\SportApp\App.xaml
+1787866627
 2310755853
-31178456860
-301503830144
-Dictionary1.xaml;Pages\AddProductPage.xaml;Pages\CatalogPage.xaml;Pages\OrdersPage.xaml;Pages\ProductsPage.xaml;Windows\MainWindow.xaml;Windows\LoginWindow.xaml;Windows\NewOrderWindow.xaml;Windows\OrderTicketWindow.xaml;
+4242530422
+30-1645633018
+Dictionary1.xaml;Pages\AddProductPage.xaml;Pages\CatalogPage.xaml;Pages\CategoryPage.xaml;Pages\ManufacturerPage.xaml;Pages\OrdersPage.xaml;Pages\ProductsPage.xaml;Pages\SupplierPage.xaml;Pages\UnitPage.xaml;Windows\MainWindow.xaml;Windows\LoginWindow.xaml;Windows\ManufacturerWindow.xaml;Windows\NewOrderWindow.xaml;Windows\OrderTicketWindow.xaml;Windows\ProductCategoryWindow.xaml;Windows\SupplierWindow.xaml;Windows\UnitWindow.xaml;
 
 False
 

@@ -14,7 +14,6 @@
     </Style>
     <!--стиль для страницы-->
     <Style TargetType="Page" x:Key="base_page">
-        <Setter Property="FontFamily" Value="Comic Sans MS"/>
         <Setter Property="Background" Value="{StaticResource main}"/>
         <Setter Property="FontSize" Value="14"/>
     </Style>

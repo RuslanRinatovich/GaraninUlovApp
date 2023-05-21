@@ -28,7 +28,7 @@ namespace SportApp.Models
         public Nullable<int> UserID { get; set; }
         public int OrderGetCode { get; set; }
     
-        public virtual OrderStatus OrderStatu { get; set; }
+        public virtual OrderStatu OrderStatu { get; set; }
         public virtual PickupPoint PickupPoint { get; set; }
         public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -8,7 +8,7 @@
           Title="Оформление заказа"  Style="{StaticResource base_window}" Height="500"
         Width="600" MinHeight="400" MinWidth="400" 
         WindowStartupLocation="CenterScreen"
-        Icon="/SportApp;component/Resources/icon.ico">
+        Icon="/SportApp;component/Resources/fishing.ico">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>

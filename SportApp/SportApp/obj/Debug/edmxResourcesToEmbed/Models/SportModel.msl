@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Хранилище SportTradeModelContainer" CdmEntityContainer="SportTradeEntities">
+  <EntityContainerMapping StorageEntityContainer="Хранилище DEMO_2022_VAR9ModelContainer" CdmEntityContainer="SportTradeEntities">
     <EntitySetMapping Name="Orders">
-      <EntityTypeMapping TypeName="SportTradeModel.Order">
+      <EntityTypeMapping TypeName="DEMO_2022_VAR9Model.Order">
         <MappingFragment StoreEntitySet="Order">
           <ScalarProperty Name="OrderID" ColumnName="OrderID" />
           <ScalarProperty Name="OrderStatusID" ColumnName="OrderStatusID" />
@@ -15,7 +15,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="OrderProducts">
-      <EntityTypeMapping TypeName="SportTradeModel.OrderProduct">
+      <EntityTypeMapping TypeName="DEMO_2022_VAR9Model.OrderProduct">
         <MappingFragment StoreEntitySet="OrderProduct">
           <ScalarProperty Name="OrderProductID" ColumnName="OrderProductID" />
           <ScalarProperty Name="ProductID" ColumnName="ProductID" />
@@ -24,8 +24,8 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="OrderStatus1">
-      <EntityTypeMapping TypeName="SportTradeModel.OrderStatus">
+    <EntitySetMapping Name="OrderStatus">
+      <EntityTypeMapping TypeName="DEMO_2022_VAR9Model.OrderStatu">
         <MappingFragment StoreEntitySet="OrderStatus">
           <ScalarProperty Name="OrderStatusID" ColumnName="OrderStatusID" />
           <ScalarProperty Name="OrderStatusName" ColumnName="OrderStatusName" />
@@ -33,7 +33,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PickupPoints">
-      <EntityTypeMapping TypeName="SportTradeModel.PickupPoint">
+      <EntityTypeMapping TypeName="DEMO_2022_VAR9Model.PickupPoint">
         <MappingFragment StoreEntitySet="PickupPoint">
           <ScalarProperty Name="PickupPointID" ColumnName="PickupPointID" />
           <ScalarProperty Name="Address" ColumnName="Address" />
@@ -41,7 +41,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Products">
-      <EntityTypeMapping TypeName="SportTradeModel.Product">
+      <EntityTypeMapping TypeName="DEMO_2022_VAR9Model.Product">
         <MappingFragment StoreEntitySet="Product">
           <ScalarProperty Name="ProductID" ColumnName="ProductID" />
           <ScalarProperty Name="ProductArticleNumber" ColumnName="ProductArticleNumber" />
@@ -60,7 +60,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ProductCategories">
-      <EntityTypeMapping TypeName="SportTradeModel.ProductCategory">
+      <EntityTypeMapping TypeName="DEMO_2022_VAR9Model.ProductCategory">
         <MappingFragment StoreEntitySet="ProductCategory">
           <ScalarProperty Name="ProductCategoryID" ColumnName="ProductCategoryID" />
           <ScalarProperty Name="ProductCategoryName" ColumnName="ProductCategoryName" />
@@ -68,7 +68,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ProductManufacturers">
-      <EntityTypeMapping TypeName="SportTradeModel.ProductManufacturer">
+      <EntityTypeMapping TypeName="DEMO_2022_VAR9Model.ProductManufacturer">
         <MappingFragment StoreEntitySet="ProductManufacturer">
           <ScalarProperty Name="ProductManufacturerID" ColumnName="ProductManufacturerID" />
           <ScalarProperty Name="ProductManufacturerName" ColumnName="ProductManufacturerName" />
@@ -76,7 +76,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ProductSuppliers">
-      <EntityTypeMapping TypeName="SportTradeModel.ProductSupplier">
+      <EntityTypeMapping TypeName="DEMO_2022_VAR9Model.ProductSupplier">
         <MappingFragment StoreEntitySet="ProductSupplier">
           <ScalarProperty Name="ProductSupplierID" ColumnName="ProductSupplierID" />
           <ScalarProperty Name="ProductSupplierName" ColumnName="ProductSupplierName" />
@@ -84,15 +84,26 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Roles">
-      <EntityTypeMapping TypeName="SportTradeModel.Role">
+      <EntityTypeMapping TypeName="DEMO_2022_VAR9Model.Role">
         <MappingFragment StoreEntitySet="Role">
           <ScalarProperty Name="RoleID" ColumnName="RoleID" />
           <ScalarProperty Name="RoleName" ColumnName="RoleName" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="DEMO_2022_VAR9Model.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="UnitTypes">
-      <EntityTypeMapping TypeName="SportTradeModel.UnitType">
+      <EntityTypeMapping TypeName="DEMO_2022_VAR9Model.UnitType">
         <MappingFragment StoreEntitySet="UnitType">
           <ScalarProperty Name="UnitTypeID" ColumnName="UnitTypeID" />
           <ScalarProperty Name="UnitTypeName" ColumnName="UnitTypeName" />
@@ -100,7 +111,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Users">
-      <EntityTypeMapping TypeName="SportTradeModel.User">
+      <EntityTypeMapping TypeName="DEMO_2022_VAR9Model.User">
         <MappingFragment StoreEntitySet="User">
           <ScalarProperty Name="UserID" ColumnName="UserID" />
           <ScalarProperty Name="UserLogin" ColumnName="UserLogin" />

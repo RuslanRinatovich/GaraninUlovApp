@@ -167,6 +167,26 @@ namespace SportApp.Pages
         {
             UpdateData();
         }
+
+        private void BtnSupplier_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new SupplierPage());
+        }
+
+        private void BtnManufacturer_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new ManufacturerPage());
+        }
+
+        private void BtnCategory_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new CategoryPage());
+        }
+
+        private void BtnUnitType_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new UnitPage());
+        }
     }
 }
 

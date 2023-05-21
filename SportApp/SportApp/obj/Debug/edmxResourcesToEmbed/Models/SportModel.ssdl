@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="Хранилище SportTradeModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="Хранилище DEMO_2022_VAR9Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="Order">
     <Key>
       <PropertyRef Name="OrderID" />
@@ -25,14 +25,14 @@
     <Key>
       <PropertyRef Name="OrderStatusID" />
     </Key>
-    <Property Name="OrderStatusID" Type="int" Nullable="false" />
+    <Property Name="OrderStatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="OrderStatusName" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="PickupPoint">
     <Key>
       <PropertyRef Name="PickupPointID" />
     </Key>
-    <Property Name="PickupPointID" Type="int" Nullable="false" />
+    <Property Name="PickupPointID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Address" Type="varchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Product">
@@ -57,21 +57,21 @@
     <Key>
       <PropertyRef Name="ProductCategoryID" />
     </Key>
-    <Property Name="ProductCategoryID" Type="int" Nullable="false" />
+    <Property Name="ProductCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ProductCategoryName" Type="nvarchar" MaxLength="100" Nullable="false" />
   </EntityType>
   <EntityType Name="ProductManufacturer">
     <Key>
       <PropertyRef Name="ProductManufacturerID" />
     </Key>
-    <Property Name="ProductManufacturerID" Type="int" Nullable="false" />
+    <Property Name="ProductManufacturerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ProductManufacturerName" Type="nvarchar" MaxLength="200" Nullable="false" />
   </EntityType>
   <EntityType Name="ProductSupplier">
     <Key>
       <PropertyRef Name="ProductSupplierID" />
     </Key>
-    <Property Name="ProductSupplierID" Type="int" Nullable="false" />
+    <Property Name="ProductSupplierID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ProductSupplierName" Type="nvarchar" MaxLength="200" Nullable="false" />
   </EntityType>
   <EntityType Name="Role">
@@ -81,11 +81,21 @@
     <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="RoleName" Type="nvarchar" MaxLength="100" Nullable="false" />
   </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
   <EntityType Name="UnitType">
     <Key>
       <PropertyRef Name="UnitTypeID" />
     </Key>
-    <Property Name="UnitTypeID" Type="int" Nullable="false" />
+    <Property Name="UnitTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="UnitTypeName" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="User">
@@ -220,7 +230,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="Хранилище SportTradeModelContainer">
+  <EntityContainer Name="Хранилище DEMO_2022_VAR9ModelContainer">
     <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="OrderProduct" EntityType="Self.OrderProduct" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" Schema="dbo" store:Type="Tables" />
@@ -230,6 +240,7 @@
     <EntitySet Name="ProductManufacturer" EntityType="Self.ProductManufacturer" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ProductSupplier" EntityType="Self.ProductSupplier" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UnitType" EntityType="Self.UnitType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_Order_OrderStatus" Association="Self.FK_Order_OrderStatus">

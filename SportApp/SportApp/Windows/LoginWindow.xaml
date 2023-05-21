@@ -9,7 +9,7 @@
         Width="400" MinHeight="200" MinWidth="400" 
         WindowStartupLocation="CenterScreen"
         Closing="WindowClosing" 
-        ResizeMode="NoResize" Icon="/SportApp;component/Resources/icon.ico">
+        ResizeMode="NoResize" Icon="/SportApp;component/Resources/fishing.ico">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />

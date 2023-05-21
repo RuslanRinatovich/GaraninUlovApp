@@ -81,8 +81,18 @@
             </DataGrid.Columns>
         </DataGrid>
         <TextBlock Grid.Row="2" x:Name="TextBlockCount" Width="300" HorizontalAlignment="Left" />
-        <Button x:Name="BtnAdd" Grid.Row="2" Width="100" HorizontalAlignment="Right" Margin="3"
+        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Right" >
+            
+             <Button x:Name="BtnCategory" HorizontalAlignment="Right" Margin="3"
+                Content="{materialDesign:PackIcon Kind=Category}" Click="BtnCategory_Click" ToolTip="Категории продуктов"/>
+            <Button x:Name="BtnUnitType" HorizontalAlignment="Right" Margin="3"
+                Content="{materialDesign:PackIcon Kind=FormatListBulletedType}" Click="BtnUnitType_Click" ToolTip="Единицы измерения"/>
+            <Button x:Name="BtnSupplier" HorizontalAlignment="Right" Margin="3"
+                Content="{materialDesign:PackIcon Kind=Truck}" Click="BtnSupplier_Click" ToolTip="Поставщики"/>
+            <Button x:Name="BtnManufacturer" HorizontalAlignment="Right" Margin="3"
+                Content="{materialDesign:PackIcon Kind=Factory}" Click="BtnManufacturer_Click" ToolTip="Производители"/>
+            <Button x:Name="BtnAdd"   HorizontalAlignment="Right" Margin="3"
                 Content="{materialDesign:PackIcon Kind=AddBold}" Click="BtnAddClick"/>
-
+        </StackPanel>
     </Grid>
 </Page>

@@ -85,7 +85,7 @@
         <DataGrid x:Name="DataGridOrderItems" Grid.Row="6"
                   AutoGenerateColumns="False"
                   IsReadOnly="True"
-                  RowHeight="30" Grid.ColumnSpan="2"
+                  Grid.ColumnSpan="2"
                   SelectionMode="Single"
                   LoadingRow="DataGridGoodLoadingRow">
             <DataGrid.Columns>

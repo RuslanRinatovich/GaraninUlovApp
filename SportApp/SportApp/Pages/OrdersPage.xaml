@@ -6,9 +6,82 @@
       xmlns:local="clr-namespace:SportApp.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Заказы" Style="{StaticResource base_page}">
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+
+       Title="Товары" IsVisibleChanged="PageIsVisibleChanged" Style="{StaticResource base_page}">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+        <WrapPanel Grid.Row="0" HorizontalAlignment="Stretch" Background="{StaticResource main}">
+            <StackPanel Orientation="Horizontal">
+
+                <TextBox Width="275" x:Name="TBoxSearch" materialDesign:HintAssist.Hint="Введите ID заказа" 
+                         TextChanged="TBoxSearchTextChanged"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+
+                <ComboBox Width="275" x:Name="ComboStatus" FontSize="14" Padding="3"
+                    SelectionChanged="ComboTypeSelectionChanged" DisplayMemberPath="OrderStatusName"/>
+
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+
+                <ComboBox Width="275"  materialDesign:HintAssist.Hint="Сортировать по"
+                          x:Name="ComboSort"
+                          SelectionChanged="ComboSortSelectionChanged" >
+                    <ComboBoxItem Content="По возрастанию"/>
+                    <ComboBoxItem Content="По убыванию"/>
+                </ComboBox>
+            </StackPanel>
+        </WrapPanel>
+        <DataGrid x:Name="DataGridGood" Grid.Row="1"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  
+                  SelectionMode="Single"
+                  LoadingRow="DataGridGoodLoadingRow">
+            <DataGrid.Columns>
+
+                <DataGridTextColumn Binding="{Binding OrderID}" Header="ID" />
+                <DataGridTextColumn Binding="{Binding OrderStatu.OrderStatusName}" Header="Статус" Width="80"/>
+                <DataGridTextColumn Binding="{Binding TotalCost, StringFormat='c', 
+                    ConverterCulture='ru-RU'}" Header="Стоимость" Width="*"/>
+                <DataGridTextColumn Binding="{Binding PickupPoint.Address}" Header="Пункт выдачи" Width="*"/>
+                <DataGridTextColumn Binding="{Binding OrderCreateDate, StringFormat='d', ConverterCulture='ru-RU'}" Header="Дата создания заказа" Width="*"/>
+                <DataGridTextColumn Binding="{Binding OrderDeliveryDate, StringFormat='d', ConverterCulture='ru-RU'}" Header="Дата выдачи" Width="*"/>
+                <DataGridTextColumn Binding="{Binding User.GetFio}" Header="Клиент" Width="*"/>
+                <DataGridTextColumn Binding="{Binding OrderGetCode}" Header="Код выдачи" Width="*"/>
+                <DataGridTemplateColumn Width="auto" Header="Редактировать">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="BtnEdit"  Content="{materialDesign:PackIcon Kind=Edit}" Click="ButtonClick" Margin="0"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="auto" Header="Удалить">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="BtnDelete"  Content="{materialDesign:PackIcon Kind=Delete}" Click="BtnDeleteClick" Margin="0"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBlock Grid.Row="2" x:Name="TextBlockCount" Width="300" HorizontalAlignment="Left" />
+        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Right">
+
+            <Button x:Name="BtnPickupPoints" HorizontalAlignment="Right" Margin="3"
+                Content="{materialDesign:PackIcon Kind=MapMarker}" Click="BtnPickupPoints_Click" ToolTip="Пункты выдачи"/>
+            <Button x:Name="BtnStatus" HorizontalAlignment="Right" Margin="3" Click="BtnStatus_Click"
+                Content="{materialDesign:PackIcon Kind=ListStatus}"  ToolTip="Статусы заказов"/>
+           
+        </StackPanel>
     </Grid>
 </Page>
-

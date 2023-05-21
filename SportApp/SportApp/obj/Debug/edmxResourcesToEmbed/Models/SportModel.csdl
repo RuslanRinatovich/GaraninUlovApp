@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="SportTradeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="DEMO_2022_VAR9Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="Order">
     <Key>
       <PropertyRef Name="OrderID" />
@@ -27,11 +27,11 @@
     <NavigationProperty Name="Order" Relationship="Self.FK_OrderProduct_Order" FromRole="OrderProduct" ToRole="Order" />
     <NavigationProperty Name="Product" Relationship="Self.FK_OrderProduct_Product" FromRole="OrderProduct" ToRole="Product" />
   </EntityType>
-  <EntityType Name="OrderStatus">
+  <EntityType Name="OrderStatu">
     <Key>
       <PropertyRef Name="OrderStatusID" />
     </Key>
-    <Property Name="OrderStatusID" Type="Int32" Nullable="false" />
+    <Property Name="OrderStatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="OrderStatusName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="Orders" Relationship="Self.FK_Order_OrderStatus" FromRole="OrderStatus" ToRole="Order" />
   </EntityType>
@@ -39,7 +39,7 @@
     <Key>
       <PropertyRef Name="PickupPointID" />
     </Key>
-    <Property Name="PickupPointID" Type="Int32" Nullable="false" />
+    <Property Name="PickupPointID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Orders" Relationship="Self.FK_Order_PickupPoint" FromRole="PickupPoint" ToRole="Order" />
   </EntityType>
@@ -70,7 +70,7 @@
     <Key>
       <PropertyRef Name="ProductCategoryID" />
     </Key>
-    <Property Name="ProductCategoryID" Type="Int32" Nullable="false" />
+    <Property Name="ProductCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="ProductCategoryName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="Products" Relationship="Self.FK_Product_ProductCategory" FromRole="ProductCategory" ToRole="Product" />
   </EntityType>
@@ -78,7 +78,7 @@
     <Key>
       <PropertyRef Name="ProductManufacturerID" />
     </Key>
-    <Property Name="ProductManufacturerID" Type="Int32" Nullable="false" />
+    <Property Name="ProductManufacturerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="ProductManufacturerName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="Products" Relationship="Self.FK_Product_ProductManufacturer" FromRole="ProductManufacturer" ToRole="Product" />
   </EntityType>
@@ -86,7 +86,7 @@
     <Key>
       <PropertyRef Name="ProductSupplierID" />
     </Key>
-    <Property Name="ProductSupplierID" Type="Int32" Nullable="false" />
+    <Property Name="ProductSupplierID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="ProductSupplierName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="Products" Relationship="Self.FK_Product_ProductSupplier" FromRole="ProductSupplier" ToRole="Product" />
   </EntityType>
@@ -98,11 +98,21 @@
     <Property Name="RoleName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="Users" Relationship="Self.FK_User_Role" FromRole="Role" ToRole="User" />
   </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
   <EntityType Name="UnitType">
     <Key>
       <PropertyRef Name="UnitTypeID" />
     </Key>
-    <Property Name="UnitTypeID" Type="Int32" Nullable="false" />
+    <Property Name="UnitTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="UnitTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Products" Relationship="Self.FK_Product_UnitType" FromRole="UnitType" ToRole="Product" />
   </EntityType>
@@ -121,7 +131,7 @@
     <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
   </EntityType>
   <Association Name="FK_Order_OrderStatus">
-    <End Role="OrderStatus" Type="SportTradeModel.OrderStatus" Multiplicity="1" />
+    <End Role="OrderStatus" Type="Self.OrderStatu" Multiplicity="1" />
     <End Role="Order" Type="Self.Order" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="OrderStatus">
@@ -243,17 +253,18 @@
   <EntityContainer Name="SportTradeEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Orders" EntityType="Self.Order" />
     <EntitySet Name="OrderProducts" EntityType="Self.OrderProduct" />
-    <EntitySet Name="OrderStatus1" EntityType="SportTradeModel.OrderStatus" />
+    <EntitySet Name="OrderStatus" EntityType="Self.OrderStatu" />
     <EntitySet Name="PickupPoints" EntityType="Self.PickupPoint" />
     <EntitySet Name="Products" EntityType="Self.Product" />
     <EntitySet Name="ProductCategories" EntityType="Self.ProductCategory" />
     <EntitySet Name="ProductManufacturers" EntityType="Self.ProductManufacturer" />
     <EntitySet Name="ProductSuppliers" EntityType="Self.ProductSupplier" />
     <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
     <EntitySet Name="UnitTypes" EntityType="Self.UnitType" />
     <EntitySet Name="Users" EntityType="Self.User" />
     <AssociationSet Name="FK_Order_OrderStatus" Association="Self.FK_Order_OrderStatus">
-      <End Role="OrderStatus" EntitySet="OrderStatus1" />
+      <End Role="OrderStatus" EntitySet="OrderStatus" />
       <End Role="Order" EntitySet="Orders" />
     </AssociationSet>
     <AssociationSet Name="FK_Order_PickupPoint" Association="Self.FK_Order_PickupPoint">
