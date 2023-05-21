@@ -23,6 +23,11 @@ namespace SportApp.Windows
     /// </summary>
     public partial class NewOrderWindow : Window
     {
+        public struct BuyItem
+        {
+            public int Count { get; set; }
+            public double Total { get; set; }
+        }
         Order _currentOrder;
         User _currentUser;
         public NewOrderWindow()
@@ -203,6 +208,27 @@ namespace SportApp.Windows
             }
         }
 
-       
+        private void BtnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            // удаление выбранного товара из таблицы
+            //получаем все выделенные товары
+           
+            // вывод сообщения с вопросом Удалить запись?
+            // вывод сообщения с вопросом Удалить запись?
+            MessageBoxResult messageBoxResult = MessageBox.Show($"Удалить товар из корзины???",
+                "Удаление", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+            //если пользователь нажал ОК пытаемся удалить запись
+            if (messageBoxResult == MessageBoxResult.OK)
+            {
+                Button button = sender as Button;
+
+                Product product = button.Tag as Product;
+              
+                    Basket.DeleteProductFromBasket(product);
+                    ListBoxOrderProducts.Items.Refresh();
+                    TextBlockTotalCost.Text = $"Итого {Basket.GetTotalCost:C}";
+               // }
+            }
+        }
     }
 }

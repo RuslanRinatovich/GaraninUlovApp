@@ -184,3 +184,13 @@ C:\DIPLOMS\Garanin\SportApp\SportApp\obj\Debug\Pages\UnitPage.baml
 C:\DIPLOMS\Garanin\SportApp\SportApp\obj\Debug\Windows\ProductCategoryWindow.baml
 C:\DIPLOMS\Garanin\SportApp\SportApp\obj\Debug\Windows\SupplierWindow.baml
 C:\DIPLOMS\Garanin\SportApp\SportApp\obj\Debug\Windows\UnitWindow.baml
+C:\DIPLOMS\Garanin\SportApp\SportApp\obj\Debug\Pages\PickupPointPage.g.cs
+C:\DIPLOMS\Garanin\SportApp\SportApp\obj\Debug\Pages\StatusPage.g.cs
+C:\DIPLOMS\Garanin\SportApp\SportApp\obj\Debug\Windows\OrderStatusWindow.g.cs
+C:\DIPLOMS\Garanin\SportApp\SportApp\obj\Debug\Windows\PickupPointWindow.g.cs
+C:\DIPLOMS\Garanin\SportApp\SportApp\obj\Debug\Pages\PickupPointPage.baml
+C:\DIPLOMS\Garanin\SportApp\SportApp\obj\Debug\Pages\StatusPage.baml
+C:\DIPLOMS\Garanin\SportApp\SportApp\obj\Debug\Windows\OrderStatusWindow.baml
+C:\DIPLOMS\Garanin\SportApp\SportApp\obj\Debug\Windows\PickupPointWindow.baml
+C:\DIPLOMS\Garanin\SportApp\SportApp\obj\Debug\Pages\EditOrderPage.g.cs
+C:\DIPLOMS\Garanin\SportApp\SportApp\obj\Debug\Pages\EditOrderPage.baml

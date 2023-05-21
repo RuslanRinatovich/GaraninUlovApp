@@ -22,7 +22,7 @@ namespace SportApp.Pages
         {
             // открытие редактирования товара
             // передача выбранного товара в AddGoodPage
-           // Manager.MainFrame.Navigate(new AddOrderPage((sender as Button).DataContext as Order));
+           Manager.MainFrame.Navigate(new EditOrderPage((sender as Button).DataContext as Order));
         }
 
         private void PageIsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)

@@ -8,13 +8,13 @@ namespace SportApp.Models
 {
    public partial class Order
     {
-        public decimal TotalCost
+        public double TotalCost
         {
             get
             {
-                decimal total = 0;
+                double total = 0;
                 foreach (OrderProduct orderProduct in OrderProducts)
-                    total += orderProduct.Count * orderProduct.Product.ProductCost;
+                    total += orderProduct.Count * orderProduct.Product.GetPriceWithDiscount;
                 return total;
             }
         }

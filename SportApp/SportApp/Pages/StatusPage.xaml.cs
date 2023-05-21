@@ -65,7 +65,7 @@ namespace SportApp.Pages
             {
 
 
-                OrderStatuWindow window = new OrderStatuWindow(new OrderStatu());
+                OrderStatusWindow window = new OrderStatusWindow(new OrderStatu());
                 if (window.ShowDialog() == true)
                 {
                     SportTradeEntities.GetContext().OrderStatus.Add(window.currentItem);
@@ -169,7 +169,7 @@ namespace SportApp.Pages
                 // получаем выделенный объект
                 OrderStatu selected = DataGridGood.SelectedItem as OrderStatu;
 
-                OrderStatuWindow window = new OrderStatuWindow(selected);
+                OrderStatusWindow window = new OrderStatusWindow(selected);
 
 
                 if (window.ShowDialog() == true)

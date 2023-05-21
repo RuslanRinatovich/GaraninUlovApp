@@ -106,6 +106,7 @@
       <DependentUpon>SportModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Partials\Order.cs" />
+    <Compile Include="Models\Partials\OrderProduct.cs" />
     <Compile Include="Models\Partials\User.cs" />
     <Compile Include="Models\PickupPoint.cs">
       <DependentUpon>SportModel.tt</DependentUpon>
@@ -157,6 +158,9 @@
     </Compile>
     <Compile Include="Pages\CategoryPage.xaml.cs">
       <DependentUpon>CategoryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EditOrderPage.xaml.cs">
+      <DependentUpon>EditOrderPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\ManufacturerPage.xaml.cs">
       <DependentUpon>ManufacturerPage.xaml</DependentUpon>
@@ -219,6 +223,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\CategoryPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\EditOrderPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

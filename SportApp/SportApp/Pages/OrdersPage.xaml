@@ -24,7 +24,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal">
 
-                <ComboBox Width="275" x:Name="ComboStatus" FontSize="14" Padding="3"
+                <ComboBox Width="275" x:Name="ComboStatus" FontSize="14" Padding="3" materialDesign:HintAssist.Hint="Статус заказа"
                     SelectionChanged="ComboTypeSelectionChanged" DisplayMemberPath="OrderStatusName"/>
 
             </StackPanel>

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\DIPLOMS\Garanin\SportApp\SportApp\App.xaml
-1787866627
+22517553909
 2310755853
-4242530422
+48121551152
 30-1645633018
-Dictionary1.xaml;Pages\AddProductPage.xaml;Pages\CatalogPage.xaml;Pages\CategoryPage.xaml;Pages\ManufacturerPage.xaml;Pages\OrdersPage.xaml;Pages\ProductsPage.xaml;Pages\SupplierPage.xaml;Pages\UnitPage.xaml;Windows\MainWindow.xaml;Windows\LoginWindow.xaml;Windows\ManufacturerWindow.xaml;Windows\NewOrderWindow.xaml;Windows\OrderTicketWindow.xaml;Windows\ProductCategoryWindow.xaml;Windows\SupplierWindow.xaml;Windows\UnitWindow.xaml;
+Dictionary1.xaml;Pages\AddProductPage.xaml;Pages\CatalogPage.xaml;Pages\CategoryPage.xaml;Pages\EditOrderPage.xaml;Pages\ManufacturerPage.xaml;Pages\OrdersPage.xaml;Pages\PickupPointPage.xaml;Pages\ProductsPage.xaml;Pages\StatusPage.xaml;Pages\SupplierPage.xaml;Pages\UnitPage.xaml;Windows\MainWindow.xaml;Windows\LoginWindow.xaml;Windows\ManufacturerWindow.xaml;Windows\NewOrderWindow.xaml;Windows\OrderStatusWindow.xaml;Windows\OrderTicketWindow.xaml;Windows\PickupPointWindow.xaml;Windows\ProductCategoryWindow.xaml;Windows\SupplierWindow.xaml;Windows\UnitWindow.xaml;
 
 False
 
