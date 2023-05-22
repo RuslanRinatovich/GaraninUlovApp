@@ -194,3 +194,29 @@ C:\DIPLOMS\Garanin\SportApp\SportApp\obj\Debug\Windows\OrderStatusWindow.baml
 C:\DIPLOMS\Garanin\SportApp\SportApp\obj\Debug\Windows\PickupPointWindow.baml
 C:\DIPLOMS\Garanin\SportApp\SportApp\obj\Debug\Pages\EditOrderPage.g.cs
 C:\DIPLOMS\Garanin\SportApp\SportApp\obj\Debug\Pages\EditOrderPage.baml
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\Pages\CategoryPage.g.cs
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\Pages\EditOrderPage.g.cs
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\Pages\ManufacturerPage.g.cs
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\Pages\PickupPointPage.g.cs
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\Pages\StatusPage.g.cs
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\Pages\SupplierPage.g.cs
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\Pages\UnitPage.g.cs
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\Windows\ManufacturerWindow.g.cs
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\Windows\OrderStatusWindow.g.cs
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\Windows\PickupPointWindow.g.cs
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\Windows\ProductCategoryWindow.g.cs
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\Windows\SupplierWindow.g.cs
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\Windows\UnitWindow.g.cs
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\Pages\CategoryPage.baml
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\Pages\EditOrderPage.baml
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\Pages\ManufacturerPage.baml
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\Pages\PickupPointPage.baml
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\Pages\StatusPage.baml
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\Pages\SupplierPage.baml
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\Pages\UnitPage.baml
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\Windows\ManufacturerWindow.baml
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\Windows\OrderStatusWindow.baml
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\Windows\PickupPointWindow.baml
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\Windows\ProductCategoryWindow.baml
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\Windows\SupplierWindow.baml
+h:\SHARE\ДИПЛОМ 2023\Гаранин\SportApp\SportApp\obj\Debug\Windows\UnitWindow.baml

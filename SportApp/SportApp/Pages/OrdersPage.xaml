@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
 
-       Title="Товары" IsVisibleChanged="PageIsVisibleChanged" Style="{StaticResource base_page}">
+       Title="Заказы" IsVisibleChanged="PageIsVisibleChanged" Style="{StaticResource base_page}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>

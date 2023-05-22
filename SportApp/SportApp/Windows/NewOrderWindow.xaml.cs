@@ -107,6 +107,7 @@ namespace SportApp.Windows
                     TextBlockTotalCost.Text = $"Итого {Basket.GetTotalCost:C}";
                 }
             }
+          
         }
 
         // проверка данных в поле количество
@@ -141,6 +142,7 @@ namespace SportApp.Windows
                             ListBoxOrderProducts.Items.Refresh();
                             ListBoxOrderProducts.SelectedIndex = k;
                         }
+                      
                     }
                     else
                     {
@@ -158,6 +160,7 @@ namespace SportApp.Windows
                 ListBoxOrderProducts.SelectedIndex = k;
             }
             TextBlockTotalCost.Text = $"Итого {Basket.GetTotalCost:C}";
+          
         }
 
         // В поле количество можно вводить только цифры
@@ -170,9 +173,14 @@ namespace SportApp.Windows
         private void BtnBuyItem_Click(object sender, RoutedEventArgs e)
         {
             // если не выбран пункт выдачи, отображаем в сообщение
-            if (ComboPickupPoint.SelectedItem == null)
+            if (ComboPickupPoint.SelectedItem == null )
             {
-                MessageBox.Show("не выбран пункт выдачи");
+                MessageBox.Show("Не выбран пункт выдачи");
+                return;
+            }
+            if (ListBoxOrderProducts.Items.Count == 0)
+            {
+                MessageBox.Show("Корзина пуста");
                 return;
             }
 
@@ -227,7 +235,7 @@ namespace SportApp.Windows
                     Basket.DeleteProductFromBasket(product);
                     ListBoxOrderProducts.Items.Refresh();
                     TextBlockTotalCost.Text = $"Итого {Basket.GetTotalCost:C}";
-               // }
+               
             }
         }
     }

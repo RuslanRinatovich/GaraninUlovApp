@@ -27,7 +27,7 @@
         <Image Source="/SportApp;component/Resources/logo.png" 
                Margin="10" 
                HorizontalAlignment="Left" />
-        <TextBlock Grid.Row="0" Text="ООО СПОРТ" 
+        <TextBlock Grid.Row="0" Text="ООО УЛОВ" 
                    HorizontalAlignment="Center" 
                    VerticalAlignment="Center"
                    Background="{StaticResource additional}"

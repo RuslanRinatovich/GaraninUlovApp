@@ -95,21 +95,22 @@
                 <DataTemplate >
                     <Grid HorizontalAlignment="Stretch" UseLayoutRounding="True">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="60"/>
+                           
                             <ColumnDefinition Width="60"/>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="80"/>
+                            <ColumnDefinition Width="60"/>
                         </Grid.ColumnDefinitions>
-                        <Button x:Name="BtnDelete"  Grid.Column="0"
+                        <Button x:Name="BtnDelete"  Grid.Column="3" Padding="0" Style="{StaticResource MaterialDesignFlatButton}" 
                                 Content="{materialDesign:PackIcon Kind=Delete}" 
                                 Click="BtnDelete_Click"
                                 Tag="{Binding Path=Key}"
                                 Margin="0"/>
-                        <Image Grid.Column="1" Width="60" Height="40" 
+                        <Image Grid.Column="0" Width="60" Height="40" 
                                Stretch="Uniform" 
                                Source="{Binding Path=Key.GetPhoto}"
                                Margin="5 0 5 0"/>
-                        <StackPanel Grid.Column="2" >
+                        <StackPanel Grid.Column="1" >
                             <TextBlock Margin="2" FontSize="16" 
                                        Text="{Binding Path=Key.ProductName}" 
                                        Width="Auto" HorizontalAlignment="Left" />
@@ -149,7 +150,7 @@
                                        Width="300" HorizontalAlignment="Left" />
                         </StackPanel>
                         <TextBlock  Width="80" VerticalAlignment="Center" 
-                                    Grid.Column="3" Margin="5"
+                                    Grid.Column="2" Margin="5"
                                     FontSize="26" 
                                     Text="{Binding Path=Key.ProductDiscountAmount, StringFormat=' {0} %'}"   />
                     </Grid>
@@ -167,7 +168,7 @@
             <Button x:Name="BtnDelete" Content="Удалить" 
                     Click="BtnDeleteClick" Width="100" />
             <Button x:Name="BtnBuyItem"  Content="Оформить" 
-                    Width="100"  Click="BtnBuyItem_Click"/>
+                    Width="110"  Click="BtnBuyItem_Click"/>
         </StackPanel>
     </Grid>
 </Window>
